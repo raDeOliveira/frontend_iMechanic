@@ -47,8 +47,6 @@
 </div> -->
 
 <h1>Home Page</h1>
-
-<br>
 <div *ngIf="isUserAuthenticated()" style="color:blue;">
     <h2>
         YOU ARE LOGGED IN
@@ -57,8 +55,7 @@
 
 <br>
 <ul>
-    <li><a routerLink="/customers">Customer</a></li>
+    <li><a routerLink="/iMechanic">iMechanic</a></li>
     <li *ngIf="!isUserAuthenticated()"><a routerLink="/login">Login</a></li>
-    <li *ngIf="isUserAuthenticated()"><a class="logout" (click)="logOut()">Log
-            out</a></li>
+    <li *ngIf="isUserAuthenticated()"><a class="logout" (click)="logOut()">Logout</a></li>
 </ul>

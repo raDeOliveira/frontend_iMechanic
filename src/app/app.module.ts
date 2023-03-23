@@ -9,8 +9,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedComponentsModule } from './shared-components/shared.components/shared.components.module';
 import { LoginComponent } from './components/login/login.component';
-import { AuthGuard } from './components/guards/auth.guard.component';
-import { CustomersComponent } from './components/customers/customers.component';
+import { AuthGuardComponent } from './components/guards/auth.guard.component';
+import { IMechanicComponent } from './components/i-mechanic/i-mechanic.component';
 
 export function tokenGetter() {
   return localStorage.getItem("jwt");
@@ -20,7 +20,7 @@ export function tokenGetter() {
   declarations: [
     AppComponent,
     LoginComponent,
-    CustomersComponent,
+    IMechanicComponent,
   ],
   imports: [
     HttpClientModule,
@@ -39,7 +39,7 @@ export function tokenGetter() {
 
   ],
   providers: [
-    AuthGuard
+    AuthGuardComponent
   ],
   bootstrap: [AppComponent]
 })

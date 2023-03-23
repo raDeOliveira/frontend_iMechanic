@@ -52,7 +52,7 @@ export class HomeComponent implements OnInit {
   //   )
   // };
 
-  // logout
+  // check if user is authenticated
   isUserAuthenticated = (): boolean => {
     const token = localStorage.getItem("jwt");
     if (token && !this.jwtHelper.isTokenExpired(token)) {
@@ -61,6 +61,7 @@ export class HomeComponent implements OnInit {
     return false;
   }
 
+  // logout
   logOut = () => {
     localStorage.removeItem("jwt");
   }

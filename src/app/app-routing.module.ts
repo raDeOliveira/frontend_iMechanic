@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CustomersComponent } from './components/customers/customers.component';
-import { AuthGuard } from './components/guards/auth.guard.component';
+import { AuthGuardComponent } from './components/guards/auth.guard.component';
+import { IMechanicComponent } from './components/i-mechanic/i-mechanic.component';
 import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', loadChildren: () => import('./components/home/home.module').then(m => m.HomeModule) },
   { path: 'login', component: LoginComponent },
-  { path: 'customers', component: CustomersComponent, canActivate: [AuthGuard] }
+  { path: 'iMechanic', component: IMechanicComponent, canActivate: [AuthGuardComponent] }
 ];
 
 @NgModule({
