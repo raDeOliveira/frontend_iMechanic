@@ -9,6 +9,11 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { ApiService } from 'src/app/service/api.service';
+import { LoginComponent } from 'src/app/components/login/login.component';
+import { IMechanicComponent } from 'src/app/components/i-mechanic/i-mechanic.component';
+import { RegisterComponent } from 'src/app/components/register/register.component';
+import { FormsModule } from '@angular/forms';
+
 
 
 
@@ -18,8 +23,12 @@ import { ApiService } from 'src/app/service/api.service';
   ],
   declarations: [
     HomeComponent,
+    LoginComponent,
+    IMechanicComponent,
+    RegisterComponent,
   ],
   imports: [
+    FormsModule,
     CommonModule,
     RouterModule,
     FlexLayoutModule,
@@ -29,6 +38,7 @@ import { ApiService } from 'src/app/service/api.service';
 
   ],
   exports: [
+    
   ]
 })
 export class SharedComponentsModule { }

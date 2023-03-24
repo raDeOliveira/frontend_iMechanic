@@ -6,23 +6,19 @@ import { AuthenticatedResponse } from 'src/app/model/authenticated.response';
 import { User } from 'src/app/model/user';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class RegisterComponent implements OnInit {
 
-  invalidLogin: boolean | undefined;
-  credentials: User = { Name: "", Password: "" };
+  credentials: User = { Name: "", Email: "", Password: "" };
+  invalidRegister: boolean | undefined;
 
-  constructor(private router: Router, private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
-  ngOnInit(): void {
-
-  }
-
-  // login
-  login = (form: NgForm) => {
+  // register
+  register = (form: NgForm) => {
     if (form.valid) {
       this.http.post<AuthenticatedResponse>("https://localhost:7166/api/auth/login", this.credentials, {
         headers: new HttpHeaders({ "Content-Type": "application/json" })
@@ -31,12 +27,16 @@ export class LoginComponent implements OnInit {
           next: (response: AuthenticatedResponse) => {
             const token = response.token;
             localStorage.setItem("jwt", token);
-            this.invalidLogin = false;
+            this.invalidRegister = false;
             this.router.navigate(["/"]);
           },
-          error: (err: HttpErrorResponse) => this.invalidLogin = true
+          error: (err: HttpErrorResponse) => this.invalidRegister = true
         })
     }
   }
 
+  ngOnInit(): void {
+  }
+
 }
+

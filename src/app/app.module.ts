@@ -7,10 +7,9 @@ import { JwtModule } from "@auth0/angular-jwt";
 
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SharedComponentsModule } from './shared-components/shared.components/shared.components.module';
-import { LoginComponent } from './components/login/login.component';
+// import { SharedComponentsModule } from './shared-components/shared.components/shared.components.module';
 import { AuthGuardComponent } from './components/guards/auth.guard.component';
-import { IMechanicComponent } from './components/i-mechanic/i-mechanic.component';
+
 
 export function tokenGetter() {
   return localStorage.getItem("jwt");
@@ -19,8 +18,7 @@ export function tokenGetter() {
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    IMechanicComponent,
+    
   ],
   imports: [
     HttpClientModule,
@@ -35,7 +33,7 @@ export function tokenGetter() {
         disallowedRoutes: []
       }
     }),
-    SharedComponentsModule
+    // SharedComponentsModule
 
   ],
   providers: [
