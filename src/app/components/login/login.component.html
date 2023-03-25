@@ -1,93 +1,82 @@
-<div class="container">
-    <input type="checkbox" id="flip">
-    <div class="cover">
-        <div class="front">
-            <img src="../../../assets/ic_launcher-playstore.png" alt="">
-            <div class="text">
-                <span class="text-1">
-                    Please login
-                </span>
-                <!-- <span class="text-2">Let's get connected</span> -->
-            </div>
-        </div>
-        <div class="back">
-            <img src="../../../assets/ic_launcher-playstore.png" alt="">
-            <div class="text">
-                <span class="text-1">
-                    Please register
-                </span>
-                <span class="text-2">Let's get started</span>
-            </div>
-        </div>
+<div fxLayout="column">
+    <h1 id="login-title" fxLayoutAlign="center">
+        Please login or register
+    </h1>
+    <div id="hr-line-div">
+        <hr id="hr-line">
     </div>
-    <div class="forms">
-        <div class="form-content">
+    <div class="container">
+        <input type="checkbox" id="flip" />
+        <div class="cover">
+            <div class="front">
+                <img src="../../../assets/ic_launcher-playstore.png" alt="" />
+            </div>
+            <div class="back">
+                <img src="../../../assets/ic_launcher-playstore.png" alt="" />
+            </div>
+        </div>
+        <div class="forms">
+            <div class="form-content">
+                <div class="login-form">
+                    <div class="title">Login</div>
+                    <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+                        <div class="input-boxes">
+                            <div *ngIf="invalidLogin" id="invalid-login">
+                                Invalid username or password.
+                            </div>
+                            <div class="input-box">
+                                <i class="fas fa-envelope"></i>
+                                <label for="email" class="sr-only"> Email address </label>
+                                <input type="email" id="email" name="email" [(ngModel)]="credentials.Name"
+                                    class="form-control" placeholder="Enter your email" required />
+                            </div>
 
-            <div class="login-form">
-                <div class="title">
-                    Login
+                            <div class="input-box">
+                                <i class="fas fa-lock"></i>
+                                <label for="password" class="sr-only"> Password </label>
+                                <input type="password" id="password" name="password" [(ngModel)]="credentials.Password"
+                                    class="form-control" placeholder="Enter your password" required />
+                            </div>
+                            <div class="text">
+                                <a href="#">Forgot password?</a>
+                            </div>
+                            <div class="button input-box">
+                                <input type="submit" value="Login" [disabled]="!loginForm.valid" />
+                            </div>
+                            <div class="text sign-up-text">
+                                Don't have an account? <label for="flip">Sigup now</label>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-                <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
-                    <div class="input-boxes">
-                        <div *ngIf="invalidLogin" id="invalid-login">
-                            Invalid username or password.
-                        </div>
-                        <div class="input-box">
-                            <i class="fas fa-envelope"></i>
-                            <label for="email" class="sr-only">
-                                Email address
-                            </label>
-                            <input type="email" id="email" name="email"
-                                [(ngModel)]="credentials.Name" class="form-control"
-                                placeholder="Enter your email" required>
-                        </div>
 
-                        <div class="input-box">
-                            <i class="fas fa-lock"></i>
-                            <label for="password" class="sr-only">
-                                Password
-                            </label>
-                            <input type="password" id="password" name="password"
-                                [(ngModel)]="credentials.Password" class="form-control"
-                                placeholder="Enter your password" required>
+                <div class="signup-form">
+                    <div class="title">Signup</div>
+                    <form action="#">
+                        <div class="input-boxes">
+                            <div class="input-box">
+                                <i class="fas fa-user"></i>
+                                <input type="text" placeholder="Enter your name" required />
+                            </div>
+                            <div class="input-box">
+                                <i class="fas fa-envelope"></i>
+                                <input type="text" placeholder="Enter your email" required />
+                            </div>
+                            <div class="input-box">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" placeholder="Enter your password" required />
+                            </div>
+                            <div class="button input-box">
+                                <input type="submit" value="Signup" />
+                            </div>
+                            <div class="text sign-up-text">
+                                Already have an account? <label for="flip">Login now</label>
+                            </div>
                         </div>
-                        <div class="text">
-                            <a href="#">Forgot password?</a>
-                        </div>
-                        <div class="button input-box">
-                            <input type="submit" [disabled]="!loginForm.valid">
-                                Submit
-                        </div>
-                        <div class="text sign-up-text">Don't have an account? <label for="flip">Sigup now</label></div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
-
-            <div class="signup-form">
-                <div class="title">Signup</div>
-                <form action="#">
-                    <div class="input-boxes">
-                        <div class="input-box">
-                            <i class="fas fa-user"></i>
-                            <input type="text" placeholder="Enter your name" required>
-                        </div>
-                        <div class="input-box">
-                            <i class="fas fa-envelope"></i>
-                            <input type="text" placeholder="Enter your email" required>
-                        </div>
-                        <div class="input-box">
-                            <i class="fas fa-lock"></i>
-                            <input type="password" placeholder="Enter your password" required>
-                        </div>
-                        <div class="button input-box">
-                            <input type="submit" value="Sumbit">
-                        </div>
-                        <div class="text sign-up-text">Already have an account? <label for="flip">Login now</label>
-                        </div>
-                    </div>
-                </form>
-            </div>
-
         </div>
     </div>
+
 </div>
