@@ -12,15 +12,25 @@ export class ButtonIconRoundComponent implements OnInit {
 
   @Input() data!: ButtonIconRound;
 
-  // set button background color
+  // set button styles
   setStyles(): any {
     const styles = {
       'background-color': this.data.backgroundColor,
+      'color': this.data.foregroundColor,
+      'margin': '5px',
       width: (this.data.size ? this.data.size : '') + 'px',
       height: (this.data.size ? this.data.size : '') + 'px'
     };
     return styles;
-  }
+  };
+
+  // set mat-icon style
+  setIconStyles(): any {
+    const styles = {
+      'left': '5px'
+    }
+    return styles;
+  };
 
   ngOnInit(): void {
   }

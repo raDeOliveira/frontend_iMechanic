@@ -5,7 +5,7 @@
     <mat-icon [ngStyle]="getStyles(btn.color)">{{btn.nameIcon}}</mat-icon>
 </button> -->
 
-<button *ngFor="let btn of buttons" class="btn" mat-mini-fab color="primary" [ngStyle]="{'background-color': bgColor}"
-    aria-label="Example icon button with a menu icon" (click)="self[btn.action]()">
+<button *ngFor="let btn of buttons" class="btn" color="primary" [ngStyle]="{'background-color': bgColor}"
+    (click)="self[btn.action]()">
     <mat-icon [ngStyle]="getStyles(btn.color)">{{btn.nameIcon}}</mat-icon>
 </button>

@@ -18,6 +18,7 @@ import { NavBarComponent } from 'src/app/components/nav-bar/nav-bar.component';
 import { MatIconModule } from '@angular/material/icon';
 import { ButtonsComponent } from 'src/app/components/buttons/buttons.component';
 import { ButtonIconRoundComponent } from 'src/app/components/button-icon-round/button-icon-round.component';
+import { FooterComponent } from 'src/app/components/footer/footer.component';
 
 @NgModule({
   providers: [ApiService],
@@ -27,7 +28,8 @@ import { ButtonIconRoundComponent } from 'src/app/components/button-icon-round/b
     IMechanicComponent,
     NavBarComponent,
     ButtonsComponent,
-    ButtonIconRoundComponent
+    ButtonIconRoundComponent,
+    FooterComponent
   ],
   imports: [
     FormsModule,

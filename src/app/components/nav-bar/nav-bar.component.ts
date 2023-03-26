@@ -33,7 +33,7 @@ export class NavBarComponent implements OnInit {
   loginBtn: ButtonIconRound = {
     nameIcon: 'login',
     backgroundColor: '#476452',
-    foregroundColor: '#2a9c2a',
+    foregroundColor: '#ffffff',
     data: '',
     size: 50,
     output: this.redirectToLogin
@@ -43,7 +43,7 @@ export class NavBarComponent implements OnInit {
   backBtn: ButtonIconRound = {
     nameIcon: 'home',
     backgroundColor: '#476452',
-    foregroundColor: '#2a9c2a',
+    foregroundColor: '#ffffff',
     data: '',
     size: 50,
     output: this.redirectToLogin

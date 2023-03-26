@@ -1,19 +1,21 @@
 <div fxFlex="auto">
     <mat-card fxLayout="row" fxLayoutAlign="space-evenly">
-        <mat-card-title fxLayoutAlign="center center">iMechanic</mat-card-title>
-        <mat-card-actions>
+        <mat-card-title fxLayoutAlign="center center">
+            <img src="../../../assets/ic_launcher_foreground.png">iMechanic
+        </mat-card-title>
 
-            <div>
-                <!-- <app-buttons [buttons]="buttons"></app-buttons> -->
-                Login
-                <app-button-icon-round [data]="loginBtn" (click)="redirectToLogin()">
-                </app-button-icon-round>
+        <mat-card-actions>
+            <!-- <app-buttons [buttons]="buttons"></app-buttons> -->
+            Login
+            <app-button-icon-round [data]="loginBtn" (click)="redirectToLogin()">
+            </app-button-icon-round>
+            Home
+
+            <!-- back button -->
+            <app-button-icon-round [data]="backBtn" (click)="redirectToHome()">
                 Home
-                <!-- back button -->
-                <app-button-icon-round [data]="backBtn" class="back-button" (click)="redirectToHome()">
-                    Home
-                </app-button-icon-round>
-            </div>
+            </app-button-icon-round>
         </mat-card-actions>
+
     </mat-card>
 </div>
