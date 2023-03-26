@@ -42,8 +42,7 @@ export class NavBarComponent implements OnInit {
   // back button
   backBtn: ButtonIconRound = {
     nameIcon: 'home',
-    backgroundColor: '#476452
-    ',
+    backgroundColor: '#476452',
     foregroundColor: '#2a9c2a',
     data: '',
     size: 50,

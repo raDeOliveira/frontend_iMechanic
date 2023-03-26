@@ -1,1 +1,49 @@
-<p>i-mechanic works!</p>
+<div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="32px" fxLayoutAlign="flex-start">
+    <mat-form-field appearance="fill">
+        <mat-label>Select</mat-label>
+        <mat-select>
+            <div *ngFor="let brand of allBrands">
+                <mat-option value={{brand}}>{{brand}}</mat-option>
+            </div>>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Select</mat-label>
+        <mat-select>
+            <div *ngFor="let model of allModels">
+                <mat-option value={{model}}>{{model}}</mat-option>
+            </div>>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Select</mat-label>
+        <mat-select>
+            <div *ngFor="let fuel of allFuels">
+                <mat-option value={{fuel}}>{{fuel}}</mat-option>
+            </div>>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Select</mat-label>
+        <mat-select>
+            <div *ngFor="let year of allYears">
+                <mat-option value={{year}}>{{year}}</mat-option>
+            </div>>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Select</mat-label>
+        <mat-select>
+            <div>
+                <mat-option value={{selectedCar}}>{{selectedCar}}</mat-option>
+            </div>>
+        </mat-select>
+    </mat-form-field>
+</div>
+
+<ul>
+    <a style="margin: 10px;" mat-stroked-button [routerLink]="['']">Back</a>
+    <div *ngIf="isUserAuthenticated()">
+        <button mat-raised-button color="primary" class="logout" (click)="logOut()">Logout</button>
+    </div>
+</ul>

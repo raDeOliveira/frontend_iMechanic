@@ -1,3 +1,5 @@
+<app-nav-bar></app-nav-bar>
+
 <div fxLayout="column">
     <h1 id="login-title" fxLayoutAlign="center">
         Please login or register
@@ -27,8 +29,9 @@
                             <div class="input-box">
                                 <i class="fas fa-envelope"></i>
                                 <label for="email" class="sr-only"> Email address </label>
-                                <input type="email" id="email" name="email" [(ngModel)]="credentials.Name"
-                                    class="form-control" placeholder="Enter your email" required />
+                                <input type="email" id="email" name="email" [(ngModel)]="credentials.Email"
+                                    [(ngModel)]="credentials.Name" class="form-control"
+                                    placeholder="Enter your name or email" required />
                             </div>
 
                             <div class="input-box">
@@ -52,22 +55,39 @@
 
                 <div class="signup-form">
                     <div class="title">Signup</div>
-                    <form action="#">
+                    <form #signupForm="ngForm" (ngSubmit)="signup(signupForm)">
                         <div class="input-boxes">
+                            <!-- password strenght -->
+                            <div *ngIf="checkPassword" id="invalid-password">
+                                Passwords don't match
+                            </div>
                             <div class="input-box">
                                 <i class="fas fa-user"></i>
-                                <input type="text" placeholder="Enter your name" required />
+                                <label for="name" class="sr-only">Name</label>
+                                <input type="text" id="name" name="name" [(ngModel)]="credentials.Name"
+                                    class="form-control" placeholder="Enter your name" required />
                             </div>
                             <div class="input-box">
                                 <i class="fas fa-envelope"></i>
-                                <input type="text" placeholder="Enter your email" required />
+                                <label for="email" class="sr-only">Email address</label>
+                                <input type="email" id="email" name="email" [(ngModel)]="credentials.Email"
+                                    class="form-control" placeholder="Enter your email" required />
                             </div>
                             <div class="input-box">
                                 <i class="fas fa-lock"></i>
-                                <input type="password" placeholder="Enter your password" required />
+                                <label for="password" class="sr-only">Password</label>
+                                <input type="password" id="password" name="password" [(ngModel)]="credentials.Password"
+                                    class="form-control" placeholder="Enter your password" required />
+                            </div>
+                            <div class="input-box">
+                                <i class="fas fa-lock"></i>
+                                <label for="retype-password" class="sr-only">Retype-password</label>
+                                <input type="password" id="retype-password" name="retype-password"
+                                    [(ngModel)]="retypePassword" class="form-control" placeholder="Retype your password"
+                                    required />
                             </div>
                             <div class="button input-box">
-                                <input type="submit" value="Signup" />
+                                <input type="submit" value="Signup" [disabled]="!signupForm.valid" />
                             </div>
                             <div class="text sign-up-text">
                                 Already have an account? <label for="flip">Login now</label>

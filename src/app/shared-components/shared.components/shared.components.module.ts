@@ -11,21 +11,23 @@ import { MatSelectModule } from '@angular/material/select';
 import { ApiService } from 'src/app/service/api.service';
 import { LoginComponent } from 'src/app/components/login/login.component';
 import { IMechanicComponent } from 'src/app/components/i-mechanic/i-mechanic.component';
-import { RegisterComponent } from 'src/app/components/register/register.component';
 import { FormsModule } from '@angular/forms';
-
-
-
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { NavBarComponent } from 'src/app/components/nav-bar/nav-bar.component';
+import { MatIconModule } from '@angular/material/icon';
+import { ButtonsComponent } from 'src/app/components/buttons/buttons.component';
+import { ButtonIconRoundComponent } from 'src/app/components/button-icon-round/button-icon-round.component';
 
 @NgModule({
-  providers: [
-    ApiService
-  ],
+  providers: [ApiService],
   declarations: [
     HomeComponent,
     LoginComponent,
     IMechanicComponent,
-    RegisterComponent,
+    NavBarComponent,
+    ButtonsComponent,
+    ButtonIconRoundComponent
   ],
   imports: [
     FormsModule,
@@ -35,10 +37,10 @@ import { FormsModule } from '@angular/forms';
     MatSlideToggleModule,
     MatFormFieldModule,
     MatSelectModule,
-
+    MatButtonModule,
+    MatCardModule,
+    MatIconModule,
   ],
-  exports: [
-    
-  ]
+  exports: [],
 })
 export class SharedComponentsModule { }

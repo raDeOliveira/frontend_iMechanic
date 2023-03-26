@@ -92,7 +92,7 @@
   bottom: 0;
   height: 3px;
   width: 25px;
-  background: #298e3a;
+  background: #476452;
 }
 
 .forms .signup-form .title:before {
@@ -138,7 +138,7 @@
 }
 
 .forms .form-content .text a {
-  color: #298e3a;
+  color: #476452;
   text-decoration: none;
 }
 
@@ -153,7 +153,7 @@
 
 .forms .form-content .button input {
   color: #fff;
-  background: #325938;
+  background: #476452;
   border-radius: 6px;
   padding: 0;
   cursor: pointer;
@@ -161,11 +161,11 @@
 }
 
 .forms .form-content .button input:hover {
-  background: #359144;
+  background: #8ac53f;
 }
 
 .forms .form-content label {
-  color: #298e3a;
+  color: #476452;
   cursor: pointer;
 }
 
@@ -206,7 +206,8 @@
   }
 }
 
-#invalid-login {
+#invalid-login,
+#invalid-password {
   text-align: center;
   color: red;
 }
