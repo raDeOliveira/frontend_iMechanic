@@ -9,13 +9,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthGuardComponent } from './components/guards/auth.guard.component';
 import { MatSelectModule } from '@angular/material/select';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { SharedComponentsModule } from './shared-components/shared.components/shared.components.module';
 
 export function tokenGetter() {
   return localStorage.getItem('jwt');
 }
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+    // HeaderComponent,
+    // FooterComponent
+  ],
   imports: [
     HttpClientModule,
     BrowserModule,
@@ -30,6 +37,9 @@ export function tokenGetter() {
         disallowedRoutes: [],
       },
     }),
+  ],
+  exports: [
+    // HeaderComponent
   ],
   providers: [AuthGuardComponent],
   bootstrap: [AppComponent],

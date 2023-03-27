@@ -18,7 +18,7 @@ import { NavBarComponent } from 'src/app/components/nav-bar/nav-bar.component';
 import { MatIconModule } from '@angular/material/icon';
 import { ButtonsComponent } from 'src/app/components/buttons/buttons.component';
 import { ButtonIconRoundComponent } from 'src/app/components/button-icon-round/button-icon-round.component';
-import { FooterComponent } from 'src/app/components/footer/footer.component';
+import { HeaderComponent } from 'src/app/components/header/header.component';
 
 @NgModule({
   providers: [ApiService],
@@ -29,7 +29,8 @@ import { FooterComponent } from 'src/app/components/footer/footer.component';
     NavBarComponent,
     ButtonsComponent,
     ButtonIconRoundComponent,
-    FooterComponent
+    HeaderComponent
+
   ],
   imports: [
     FormsModule,
@@ -43,6 +44,8 @@ import { FooterComponent } from 'src/app/components/footer/footer.component';
     MatCardModule,
     MatIconModule,
   ],
-  exports: [],
+  exports: [
+    HeaderComponent
+  ],
 })
 export class SharedComponentsModule { }
