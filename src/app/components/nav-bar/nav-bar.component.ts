@@ -1,6 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { JwtHelperService } from '@auth0/angular-jwt';
 import { ButtonIconRound } from 'src/app/model/btn-icon-round.model';
+import { ApiService } from 'src/app/service/api.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -9,7 +11,28 @@ import { ButtonIconRound } from 'src/app/model/btn-icon-round.model';
 })
 export class NavBarComponent implements OnInit {
 
-  constructor(private route: Router) { }
+  userInSession = '';
+
+  constructor(private route: Router, private apiService: ApiService, private jwtHelper: JwtHelperService) {
+    this.apiService.userInSession.subscribe(user =>
+      this.userInSession = user
+    );
+  }
+
+  // check if user is authenticated
+  isUserAuthenticated = (): boolean => {
+    const token = localStorage.getItem('jwt');
+    if (token && !this.jwtHelper.isTokenExpired(token)) {
+      return true;
+    }
+    return false;
+  };
+
+  // logout
+  logOut = () => {
+    localStorage.removeItem('jwt');
+    this.route.navigate(['/']);
+  };
 
   // @Input() shortcutButtons: ButtonIconRound | any;
   // buttons = [
@@ -43,6 +66,16 @@ export class NavBarComponent implements OnInit {
   backBtn: ButtonIconRound = {
     nameIcon: 'home',
     backgroundColor: '#476452',
+    foregroundColor: '#ffffff',
+    data: '',
+    size: 50,
+    output: this.redirectToLogin
+  };
+
+  // logout button
+  logoutBtn: ButtonIconRound = {
+    nameIcon: 'logout',
+    backgroundColor: '#8B0000',
     foregroundColor: '#ffffff',
     data: '',
     size: 50,

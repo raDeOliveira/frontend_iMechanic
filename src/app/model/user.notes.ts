@@ -1,6 +1,6 @@
 export interface Usernotes {
-    Id: number,
-    Id_User: string,
-    Notes: string,
-    Id_Choosen_Car: string,
+    id: number,
+    id_User: string,
+    notes: string,
+    id_Choosen_Car: string,
 }

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { JwtHelperService } from '@auth0/angular-jwt';
 import { ApiService } from 'src/app/service/api.service';
 
 @Component({
@@ -16,23 +15,7 @@ export class IMechanicComponent implements OnInit {
   allYears = [];
   selectedCar: any | string;
 
-  constructor(private route: Router, private apiService: ApiService, private jwtHelper: JwtHelperService) { }
-
-  // check if user is authenticated
-  isUserAuthenticated = (): boolean => {
-    const token = localStorage.getItem('jwt');
-    if (token && !this.jwtHelper.isTokenExpired(token)) {
-      return true;
-    }
-    return false;
-  };
-
-  // logout
-  logOut = () => {
-    localStorage.removeItem('jwt');
-    this.route.navigate(['/']);
-  };
-
+  constructor(private route: Router, private apiService: ApiService) { }
 
   // get all brands
   getAllBrands() {

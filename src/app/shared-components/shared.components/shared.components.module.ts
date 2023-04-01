@@ -14,22 +14,24 @@ import { IMechanicComponent } from 'src/app/components/i-mechanic/i-mechanic.com
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { NavBarComponent } from 'src/app/components/nav-bar/nav-bar.component';
 import { MatIconModule } from '@angular/material/icon';
 import { ButtonsComponent } from 'src/app/components/buttons/buttons.component';
 import { ButtonIconRoundComponent } from 'src/app/components/button-icon-round/button-icon-round.component';
 import { HeaderComponent } from 'src/app/components/header/header.component';
+import { NavBarComponent } from 'src/app/components/nav-bar/nav-bar.component';
+import { FooterComponent } from 'src/app/components/footer/footer.component';
 
 @NgModule({
   providers: [ApiService],
   declarations: [
     HomeComponent,
+    HeaderComponent,
+    NavBarComponent,
+    FooterComponent,
     LoginComponent,
     IMechanicComponent,
-    NavBarComponent,
     ButtonsComponent,
     ButtonIconRoundComponent,
-    HeaderComponent
 
   ],
   imports: [
@@ -45,7 +47,14 @@ import { HeaderComponent } from 'src/app/components/header/header.component';
     MatIconModule,
   ],
   exports: [
-    HeaderComponent
+    HomeComponent,
+    HeaderComponent,
+    NavBarComponent,
+    FooterComponent,
+    LoginComponent,
+    IMechanicComponent,
+    ButtonsComponent,
+    ButtonIconRoundComponent,
   ],
 })
 export class SharedComponentsModule { }

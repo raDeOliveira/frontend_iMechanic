@@ -1,0 +1,12 @@
+<div *ngFor="let q of questions">
+    {{q.id}}-
+    {{q.question_type_id}}-
+    {{q.question_type_name}}-
+    {{q.question_name}}-
+    <div *ngFor="let item of q.question_item">
+        {{item.answer_id}}
+        {{item.glyph}}
+        <!-- {{item.name}} -->
+        {{item.note}}
+    </div>
+</div>

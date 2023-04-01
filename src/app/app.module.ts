@@ -9,9 +9,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthGuardComponent } from './components/guards/auth.guard.component';
 import { MatSelectModule } from '@angular/material/select';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
 import { SharedComponentsModule } from './shared-components/shared.components/shared.components.module';
+import { QuestionsComponent } from './components/questions/questions.component';
 
 export function tokenGetter() {
   return localStorage.getItem('jwt');
@@ -20,8 +19,7 @@ export function tokenGetter() {
 @NgModule({
   declarations: [
     AppComponent,
-    // HeaderComponent,
-    // FooterComponent
+    QuestionsComponent,
   ],
   imports: [
     HttpClientModule,
@@ -37,9 +35,9 @@ export function tokenGetter() {
         disallowedRoutes: [],
       },
     }),
+    SharedComponentsModule
   ],
   exports: [
-    // HeaderComponent
   ],
   providers: [AuthGuardComponent],
   bootstrap: [AppComponent],

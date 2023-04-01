@@ -1,5 +1,3 @@
-<app-nav-bar></app-nav-bar>
-
 <div fxLayout="column">
     <h1 id="login-title" fxLayoutAlign="center">
         Please login or register
@@ -21,6 +19,7 @@
             <div class="form-content">
                 <div class="login-form">
                     <div class="title">Login</div>
+
                     <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
                         <div class="input-boxes">
                             <div *ngIf="invalidLogin" id="invalid-login">
@@ -28,55 +27,65 @@
                             </div>
                             <div class="input-box">
                                 <i class="fas fa-envelope"></i>
-                                <label for="email" class="sr-only"> Email address </label>
-                                <input type="email" id="email" name="email" [(ngModel)]="credentials.Email"
-                                    [(ngModel)]="credentials.Name" class="form-control"
+                                <label for="email" class="sr-only"> Email
+                                    address </label>
+                                <input type="email" id="email" name="email" [(ngModel)]="credentials.email"
+                                    [(ngModel)]="credentials.name" class="form-control"
                                     placeholder="Enter your name or email" required />
                             </div>
 
                             <div class="input-box">
                                 <i class="fas fa-lock"></i>
-                                <label for="password" class="sr-only"> Password </label>
-                                <input type="password" id="password" name="password" [(ngModel)]="credentials.Password"
+                                <label for="password" class="sr-only"> Password
+                                </label>
+                                <input type="password" id="password" name="password" [(ngModel)]="credentials.password"
                                     class="form-control" placeholder="Enter your password" required />
                             </div>
                             <div class="text">
                                 <a href="#">Forgot password?</a>
                             </div>
-                            <div class="button input-box">
-                                <input type="submit" value="Login" [disabled]="!loginForm.valid" />
-                            </div>
+
+                            <!-- NOTE => fix input button -->
+                            <!-- <div class="button input-box"> -->
+                            <button class="button input-box" type="submit" value="Login"
+                                [disabled]="!loginForm.valid"></button>
+                            <!-- </div> -->
+
                             <div class="text sign-up-text">
-                                Don't have an account? <label for="flip">Sigup now</label>
+                                Don't have an account? <label for="flip">Sigup
+                                    now</label>
                             </div>
                         </div>
                     </form>
-                </div>
 
+                </div>
                 <div class="signup-form">
                     <div class="title">Signup</div>
+
                     <form #signupForm="ngForm" (ngSubmit)="signup(signupForm)">
                         <div class="input-boxes">
+
                             <!-- password strenght -->
-                            <div *ngIf="checkPassword" id="invalid-password">
+                            <div *ngIf="invalidSignup" id="invalid-password">
                                 Passwords don't match
                             </div>
                             <div class="input-box">
                                 <i class="fas fa-user"></i>
                                 <label for="name" class="sr-only">Name</label>
-                                <input type="text" id="name" name="name" [(ngModel)]="credentials.Name"
+                                <input type="text" id="name" name="name" [(ngModel)]="credentials.name"
                                     class="form-control" placeholder="Enter your name" required />
                             </div>
                             <div class="input-box">
                                 <i class="fas fa-envelope"></i>
-                                <label for="email" class="sr-only">Email address</label>
-                                <input type="email" id="email" name="email" [(ngModel)]="credentials.Email"
+                                <label for="email" class="sr-only">Email
+                                    address</label>
+                                <input type="email" id="email" name="email" [(ngModel)]="credentials.email"
                                     class="form-control" placeholder="Enter your email" required />
                             </div>
                             <div class="input-box">
                                 <i class="fas fa-lock"></i>
                                 <label for="password" class="sr-only">Password</label>
-                                <input type="password" id="password" name="password" [(ngModel)]="credentials.Password"
+                                <input type="password" id="password" name="password" [(ngModel)]="credentials.password"
                                     class="form-control" placeholder="Enter your password" required />
                             </div>
                             <div class="input-box">
@@ -86,14 +95,20 @@
                                     [(ngModel)]="retypePassword" class="form-control" placeholder="Retype your password"
                                     required />
                             </div>
-                            <div class="button input-box">
-                                <input type="submit" value="Signup" [disabled]="!signupForm.valid" />
-                            </div>
+
+                            <!-- NOTE => fix input button -->
+                            <!-- <div class="button input-box"> -->
+                            <button class="button input-box" type="submit" value="Signup"
+                                [disabled]="!signupForm.valid"></button>
+                            <!-- </div> -->
+
                             <div class="text sign-up-text">
-                                Already have an account? <label for="flip">Login now</label>
+                                Already have an account? <label for="flip">Login
+                                    now</label>
                             </div>
                         </div>
                     </form>
+
                 </div>
             </div>
         </div>

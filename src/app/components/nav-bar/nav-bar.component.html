@@ -4,18 +4,26 @@
             <img src="../../../assets/ic_launcher_foreground.png">iMechanic
         </mat-card-title>
 
+        <!-- check if user is authenticated -->
         <mat-card-actions>
-            <!-- <app-buttons [buttons]="buttons"></app-buttons> -->
-            Login
-            <app-button-icon-round [data]="loginBtn" (click)="redirectToLogin()">
-            </app-button-icon-round>
-            Home
+            <div *ngIf="!isUserAuthenticated()">
+                <!-- <app-buttons [buttons]="buttons"></app-buttons> -->
+                <app-button-icon-round [data]="loginBtn" (click)="redirectToLogin()">
+                </app-button-icon-round>
 
-            <!-- back button -->
-            <app-button-icon-round [data]="backBtn" (click)="redirectToHome()">
+                <!-- back button -->
                 Home
-            </app-button-icon-round>
+                <app-button-icon-round [data]="backBtn" (click)="redirectToHome()">
+                </app-button-icon-round>
+            </div>
         </mat-card-actions>
 
+        <!-- check if user is authenticated -->
+        <div *ngIf="isUserAuthenticated()">
+            <app-button-icon-round [data]="logoutBtn" (click)="logOut()">Logout
+            </app-button-icon-round>
+            <!-- BUG check why name looses after refresh browser -->
+            {{userInSession}}
+        </div>
     </mat-card>
 </div>
