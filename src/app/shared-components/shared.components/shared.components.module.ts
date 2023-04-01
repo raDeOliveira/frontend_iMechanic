@@ -17,9 +17,13 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { ButtonsComponent } from 'src/app/components/buttons/buttons.component';
 import { ButtonIconRoundComponent } from 'src/app/components/button-icon-round/button-icon-round.component';
+
+
 import { HeaderComponent } from 'src/app/components/header/header.component';
 import { NavBarComponent } from 'src/app/components/nav-bar/nav-bar.component';
 import { FooterComponent } from 'src/app/components/footer/footer.component';
+import { QuestionsComponent } from 'src/app/components/questions/questions.component';
+import { CardComponent } from 'src/app/components/card/card.component';
 
 @NgModule({
   providers: [ApiService],
@@ -32,6 +36,8 @@ import { FooterComponent } from 'src/app/components/footer/footer.component';
     IMechanicComponent,
     ButtonsComponent,
     ButtonIconRoundComponent,
+    QuestionsComponent,
+    CardComponent
 
   ],
   imports: [
@@ -55,6 +61,8 @@ import { FooterComponent } from 'src/app/components/footer/footer.component';
     IMechanicComponent,
     ButtonsComponent,
     ButtonIconRoundComponent,
+    QuestionsComponent,
+    CardComponent
   ],
 })
 export class SharedComponentsModule { }

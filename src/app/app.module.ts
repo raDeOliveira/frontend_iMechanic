@@ -10,7 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthGuardComponent } from './components/guards/auth.guard.component';
 import { MatSelectModule } from '@angular/material/select';
 import { SharedComponentsModule } from './shared-components/shared.components/shared.components.module';
-import { QuestionsComponent } from './components/questions/questions.component';
+import { CardComponent } from './components/card/card.component';
 
 export function tokenGetter() {
   return localStorage.getItem('jwt');
@@ -19,7 +19,6 @@ export function tokenGetter() {
 @NgModule({
   declarations: [
     AppComponent,
-    QuestionsComponent,
   ],
   imports: [
     HttpClientModule,
