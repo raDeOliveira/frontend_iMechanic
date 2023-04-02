@@ -1,30 +1,15 @@
 <mat-card>
     <mat-card-header>
-        <mat-card-title>Questions</mat-card-title>
+        <mat-card-title>{{card.colName}}</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-        <table>
-            <thead>
-                <tr>
-                    <th>{{card.colName}}</th>
-                </tr>
-            </thead>
-
-
-            <!-- <div *ngFor="let q of card.valuesArr">
-                <tbody>
-                    <tr>
-                        <td>{{card.colValue}}</td>
-                        <div *ngFor="let item of q">
-                            <div>{{item.answer_id}}</div>
-                            <div>{{item.glyph}}</div>
-                            <div>{{item.name}}</div>
-                            <div>{{item.note}}</div>
-                        </div>
-                    </tr>
-                </tbody>
-            </div> -->
-
-        </table>
+        <div *ngFor="let q of card.questions">
+            <mat-card-content>
+                {{q.answer_id}}
+                {{q.glyph}}
+                {{q.name}}
+                {{q.note}}
+            </mat-card-content>
+        </div>
     </mat-card-content>
 </mat-card>

@@ -1,3 +1,4 @@
-<div *ngFor="let q of questions">
-    <app-card [card]="card"></app-card>
-</div>
+<app-card [card]="card"></app-card>
+
+<button (click)="previousQuestion()" [disabled]="questions.length < 0">Previous</button>
+<button (click)="nextQuestion()" *ngIf="questions.length > 1">Next</button>

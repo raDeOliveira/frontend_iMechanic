@@ -18,23 +18,47 @@ export class QuestionsComponent implements OnInit {
 
   stringifiedQuestions = JSON.stringify(quest.questions);
   questions: Question[] = JSON.parse(this.stringifiedQuestions);
+  isClicked!: boolean;
+  questionNumber = 0;
 
+  // card input values
   card: Card = {
-    colName: "",
-    colValue: "",
-    valuesArr: []
-  }
+    colName: '',
+    questions: []
+  };
+
+  // next question
+  nextQuestion() {
+    if (this.questionNumber <= 0) {
+      // this.questionNumber = this.questionNumber;
+    };
+    this.questionNumber++;
+    this.questions.forEach(element => {
+      this.card.colName = this.questions[this.questionNumber].question_name;
+      this.card.questions = this.questions[this.questionNumber].question_item;
+    });
+    console.log(this.questionNumber);
+  };
+
+  // previous question
+  previousQuestion() {
+    if (this.questionNumber >= 7) {
+      // this.questionNumber = this.questionNumber;
+    };
+    this.questionNumber--;
+    this.questions.forEach(element => {
+      this.card.colName = this.questions[this.questionNumber].question_name;
+      this.card.questions = this.questions[this.questionNumber].question_item;
+    });
+    console.log(this.questionNumber);
+  };
 
   ngOnInit(): void {
-
     this.questions.forEach(element => {
-      this.card.colName = element.question_name;
-      this.card.colValue = element.question_type_name;
-      this.card.valuesArr = element.question_item;
+      this.card.colName = this.questions[this.questionNumber].question_name;
+      this.card.questions = this.questions[this.questionNumber].question_item;
     });
-
-  }
-
+  };
 
 
 }
