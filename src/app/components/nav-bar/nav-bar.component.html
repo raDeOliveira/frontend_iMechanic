@@ -1,29 +1,38 @@
 <div fxFlex="auto">
-    <mat-card fxLayout="row" fxLayoutAlign="space-evenly">
-        <mat-card-title fxLayoutAlign="center center">
-            <img src="../../../assets/ic_launcher_foreground.png">iMechanic
-        </mat-card-title>
+    <mat-card>
 
-        <!-- check if user is authenticated -->
-        <mat-card-actions>
-            <div *ngIf="!isUserAuthenticated()">
-                <!-- <app-buttons [buttons]="buttons"></app-buttons> -->
-                <app-button-icon-round [data]="loginBtn" (click)="redirectToLogin()">
-                </app-button-icon-round>
-
-                <!-- back button -->
-                Home
-                <app-button-icon-round [data]="backBtn" (click)="redirectToHome()">
-                </app-button-icon-round>
+        <div fxLayout="row" fxLayoutAlign="space-between">
+            <div>
+                <mat-card-title fxLayoutAlign="center center">
+                    <img src="../../../assets/ic_launcher_foreground.png">iMechanic
+                </mat-card-title>
             </div>
-        </mat-card-actions>
 
-        <!-- check if user is authenticated -->
-        <div *ngIf="isUserAuthenticated()">
-            <app-button-icon-round [data]="logoutBtn" (click)="logOut()">Logout
-            </app-button-icon-round>
-            <!-- BUG check why name looses after refresh browser -->
-            {{userInSession}}
+            <div>
+                <!-- check if user is authenticated -->
+                <mat-card-actions>
+                    <div *ngIf="!isUserAuthenticated()">
+                        <!-- <app-buttons [buttons]="buttons"></app-buttons> -->
+                        <app-button-icon-round [data]="loginBtn" (click)="redirectToLogin()">
+                        </app-button-icon-round>
+
+                        <!-- home button -->
+                        <app-button-icon-round [data]="backBtn" (click)="redirectToHome()">
+                        </app-button-icon-round>
+                    </div>
+
+                    <!-- check if user is authenticated -->
+                    <div *ngIf="isUserAuthenticated()">
+                        <app-button-icon-round [data]="logoutBtn" (click)="logOut()">Logout
+                        </app-button-icon-round>
+                        <!-- BUG check why name looses after refresh browser -->
+                        {{userInSession}}
+                    </div>
+                </mat-card-actions>
+            </div>
+
         </div>
+
+
     </mat-card>
 </div>

@@ -4,10 +4,11 @@
 .container {
   margin: auto;
   position: relative;
-  max-width: 850px;
+  // max-width: 850px;
+  max-width: 750px;
   width: 100%;
   background: #fff;
-  padding: 40px 30px;
+  padding: 10px 30px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   perspective: 2700px;
 }
@@ -24,7 +25,7 @@
   transform-style: preserve-3d;
 }
 
-.container #flip:checked ~ .cover {
+.container #flip:checked~.cover {
   transform: rotateY(-180deg);
 }
 
@@ -146,24 +147,6 @@
   text-decoration: underline;
 }
 
-.forms .form-content .button {
-  color: #fff;
-  margin-top: 40px;
-}
-
-.forms .form-content .button input {
-  color: #fff;
-  background: #476452;
-  border-radius: 6px;
-  padding: 0;
-  cursor: pointer;
-  // transition: all 0.4s ease;
-}
-
-.forms .form-content .button input:hover {
-  background: #8ac53f;
-}
-
 .forms .form-content label {
   color: #476452;
   cursor: pointer;
@@ -197,11 +180,11 @@
     display: none;
   }
 
-  .container #flip:checked ~ .forms .signup-form {
+  .container #flip:checked~.forms .signup-form {
     display: block;
   }
 
-  .container #flip:checked ~ .forms .login-form {
+  .container #flip:checked~.forms .login-form {
     display: none;
   }
 }
@@ -242,6 +225,7 @@ input:focus {
     // box-shadow: 0 0 5px rgba(0, 255, 0, 0.2), inset 0 0 5px rgba(0, 0, 0, 0.1);
     box-shadow: 0 0 5px #298e3a, inset 0 0 5px rgba(0, 0, 0, 0.1);
   }
+
   100% {
     border-color: #298e3a;
     // box-shadow: 0 0 20px rgba(0, 255, 0, 0.6), inset 0 0 10px rgba(0, 255, 0, 0.4);

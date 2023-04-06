@@ -1,4 +1,9 @@
 <mat-card>
+    <h2 fxLayoutAlign="center center">iReport</h2>
+    <div fxLayoutAlign="space-between">
+        <app-button-icon-round [data]="previousBtn" (click)="previousQuestion()"></app-button-icon-round>
+        <app-button-icon-round [data]="nextBtn" (click)="nextQuestion()"></app-button-icon-round>
+    </div>
     <mat-card-header>
         <mat-card-title>{{card.colName}}</mat-card-title>
     </mat-card-header>

@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class FooterComponent {
 
+  constructor() { }
+
+  // NOTE => make function to calculate the height of the footer
+
 }

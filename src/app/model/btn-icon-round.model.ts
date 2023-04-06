@@ -4,5 +4,5 @@ export interface ButtonIconRound {
     foregroundColor: string;
     data: string;
     size?: number;
-    output: () => void;
+    output?: () => void;
 }

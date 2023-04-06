@@ -45,14 +45,11 @@
                                 <a href="#">Forgot password?</a>
                             </div>
 
-                            <!-- NOTE => fix input button -->
-                            <!-- <div class="button input-box"> -->
-                            <button class="button input-box" type="submit" value="Login"
-                                [disabled]="!loginForm.valid"></button>
-                            <!-- </div> -->
+                            <button class="button input-box" fxLayoutAlign="center center" type="submit" value="Login"
+                                [disabled]="!loginForm.valid" [ngStyle]="setStyles(loginForm)">Login</button>
 
                             <div class="text sign-up-text">
-                                Don't have an account? <label for="flip">Sigup
+                                Don't have an account? <label for="flip">Signup
                                     now</label>
                             </div>
                         </div>
@@ -96,11 +93,8 @@
                                     required />
                             </div>
 
-                            <!-- NOTE => fix input button -->
-                            <!-- <div class="button input-box"> -->
-                            <button class="button input-box" type="submit" value="Signup"
-                                [disabled]="!signupForm.valid"></button>
-                            <!-- </div> -->
+                            <button class="button input-box" fxLayoutAlign="center center" type="submit" value="Signup"
+                                [disabled]="!signupForm.valid" [ngStyle]="setStyles(signupForm)">Signup</button>
 
                             <div class="text sign-up-text">
                                 Already have an account? <label for="flip">Login

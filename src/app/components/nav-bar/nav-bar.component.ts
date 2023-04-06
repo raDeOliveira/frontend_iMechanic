@@ -34,24 +34,6 @@ export class NavBarComponent implements OnInit {
     this.route.navigate(['/']);
   };
 
-  // @Input() shortcutButtons: ButtonIconRound | any;
-  // buttons = [
-  //   {
-  //     nameIcon: 'chevron_left',
-  //     backgroundColor: '#00FF36',
-  //     foregroundColor: '#2a9c2a',
-  //     data: '',
-  //     output: this.sideButton
-  //   },
-  //   {
-  //     nameIcon: 'done_all',
-  //     backgroundColor: '#00FF36',
-  //     foregroundColor: '#00FF36',
-  //     data: '',
-  //     output: this.sideButton
-  //   }
-  // ]
-
   // login button
   loginBtn: ButtonIconRound = {
     nameIcon: 'login',
@@ -69,17 +51,17 @@ export class NavBarComponent implements OnInit {
     foregroundColor: '#ffffff',
     data: '',
     size: 50,
-    output: this.redirectToLogin
+    // output: this.redirectToLogin
   };
 
   // logout button
   logoutBtn: ButtonIconRound = {
     nameIcon: 'logout',
-    backgroundColor: '#8B0000',
+    backgroundColor: '#b23b3b',
     foregroundColor: '#ffffff',
     data: '',
     size: 50,
-    output: this.redirectToLogin
+    // output: this.redirectToLogin
   };
 
   // redirect to login page

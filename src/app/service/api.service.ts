@@ -2,6 +2,11 @@
 import { EventEmitter, Injectable, Output } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import * as questionsJSON from "../../assets/questions.json"
+import { Question } from '../model/question';
+
+// call questions JSON
+const quest = questionsJSON;
 
 
 @Injectable({
@@ -9,14 +14,15 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ApiService {
 
+    constructor(private http: HttpClient) { }
+
     // API URL
     apiUri = 'https://localhost:7166/api';
 
     @Output() userInSession = new EventEmitter();
     selectedCar: any | string;
-    questions!: any | [];
-
-    constructor(private http: HttpClient) { }
+    stringifiedQuestions = JSON.stringify(quest.questions);
+    questions: Question[] = JSON.parse(this.stringifiedQuestions);
 
 
     // get all brands

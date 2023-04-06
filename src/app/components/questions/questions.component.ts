@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Question } from 'src/app/model/question';
 import * as questionsJSON from "../../../assets/questions.json"
 import { Card } from 'src/app/model/card';
+import { ApiService } from 'src/app/service/api.service';
 
 // call questions JSON
 const quest = questionsJSON;
@@ -14,12 +14,7 @@ const quest = questionsJSON;
 })
 export class QuestionsComponent implements OnInit {
 
-  constructor() { }
-
-  stringifiedQuestions = JSON.stringify(quest.questions);
-  questions: Question[] = JSON.parse(this.stringifiedQuestions);
-  isClicked!: boolean;
-  questionNumber = 0;
+  constructor(private apiService: ApiService) { }
 
   // card input values
   card: Card = {
@@ -27,37 +22,9 @@ export class QuestionsComponent implements OnInit {
     questions: []
   };
 
-  // next question
-  nextQuestion() {
-    if (this.questionNumber <= 0) {
-      // this.questionNumber = this.questionNumber;
-    };
-    this.questionNumber++;
-    this.questions.forEach(element => {
-      this.card.colName = this.questions[this.questionNumber].question_name;
-      this.card.questions = this.questions[this.questionNumber].question_item;
-    });
-    console.log(this.questionNumber);
-  };
-
-  // previous question
-  previousQuestion() {
-    if (this.questionNumber >= 7) {
-      // this.questionNumber = this.questionNumber;
-    };
-    this.questionNumber--;
-    this.questions.forEach(element => {
-      this.card.colName = this.questions[this.questionNumber].question_name;
-      this.card.questions = this.questions[this.questionNumber].question_item;
-    });
-    console.log(this.questionNumber);
-  };
-
   ngOnInit(): void {
-    this.questions.forEach(element => {
-      this.card.colName = this.questions[this.questionNumber].question_name;
-      this.card.questions = this.questions[this.questionNumber].question_item;
-    });
+    this.card.colName = this.apiService.questions[0].question_name;
+    this.card.questions = this.apiService.questions[0].question_item;
   };
 
 

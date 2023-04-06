@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ButtonIconRound } from 'src/app/model/btn-icon-round.model';
 import { ApiService } from 'src/app/service/api.service';
 
 @Component({
@@ -16,6 +17,21 @@ export class IMechanicComponent implements OnInit {
   selectedCar: any | string;
 
   constructor(private route: Router, private apiService: ApiService) { }
+
+  // redirect to iReport
+  redirectToiReport(): any {
+    this.route.navigate(['/iReport']);
+    console.log('redirect to iReport')
+  }
+
+  questionsBtn: ButtonIconRound = {
+    nameIcon: 'start',
+    backgroundColor: '#8ac53f',
+    foregroundColor: '#ffffff',
+    data: '',
+    size: 50,
+    output: this.redirectToiReport
+  };
 
   // get all brands
   getAllBrands() {

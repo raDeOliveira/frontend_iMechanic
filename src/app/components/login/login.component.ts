@@ -64,6 +64,17 @@ export class LoginComponent implements OnInit {
     }
   };
 
+  // login/signup hovver button
+  setStyles(form: NgForm): any {
+    if (form.valid) {
+      const styles = {
+        'background-color': '#476452',
+        'cursor': 'pointer'
+      };
+      return styles;
+    };
+  };
+
   ngOnInit(): void {
   }
 
