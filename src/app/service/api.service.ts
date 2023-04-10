@@ -40,14 +40,14 @@ export class ApiService {
         return this.http.get<any>(this.apiUri + '/cars/fuels');
     };
 
-    // get all years
-    getAllYears(): Observable<any> {
-        return this.http.get<any>(this.apiUri + '/cars/years');
+    // get option car
+    getOptionCar(brand: string, model: string, fuel: string): Observable<any> {
+        return this.http.get<any>(this.apiUri + '/cars/optionCar/' + brand + '/' + model + '/' + fuel);
     };
 
     // get selected car
-    getSelectedCar(brand: string, model: string, fuel: string): Observable<any> {
-        return this.http.get<any>(this.apiUri + '/cars/' + brand + '/' + model + '/' + fuel);
+    getSelectedCar(brand: string, model: string, fuel: string, option: string): Observable<any> {
+        return this.http.get<any>(this.apiUri + '/cars/selectedCar/' + brand + '/' + model + '/' + fuel + '/' + option);
     };
 
     // get user in session

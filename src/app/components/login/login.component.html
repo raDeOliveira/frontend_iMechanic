@@ -46,7 +46,9 @@
                             </div>
 
                             <button class="button input-box" fxLayoutAlign="center center" type="submit" value="Login"
-                                [disabled]="!loginForm.valid" [ngStyle]="setStyles(loginForm)">Login</button>
+                                [disabled]="!loginForm.valid" [ngStyle]="setStyles(loginForm)"
+                                onmouseover="this.style.backgroundColor='#8ac53f'"
+                                onmouseout="this.style.backgroundColor='#476452'">Login</button>
 
                             <div class="text sign-up-text">
                                 Don't have an account? <label for="flip">Signup
@@ -94,7 +96,9 @@
                             </div>
 
                             <button class="button input-box" fxLayoutAlign="center center" type="submit" value="Signup"
-                                [disabled]="!signupForm.valid" [ngStyle]="setStyles(signupForm)">Signup</button>
+                                [disabled]="!signupForm.valid" [ngStyle]="setStyles(signupForm)"
+                                onmouseover="this.style.backgroundColor='#8ac53f'"
+                                onmouseout="this.style.backgroundColor='#476452'">Signup</button>
 
                             <div class="text sign-up-text">
                                 Already have an account? <label for="flip">Login
