@@ -15,10 +15,11 @@ import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+
+
 import { ButtonsComponent } from 'src/app/components/buttons/buttons.component';
 import { ButtonIconRoundComponent } from 'src/app/components/button-icon-round/button-icon-round.component';
-
-
 import { HeaderComponent } from 'src/app/components/header/header.component';
 import { NavBarComponent } from 'src/app/components/nav-bar/nav-bar.component';
 import { FooterComponent } from 'src/app/components/footer/footer.component';
@@ -51,6 +52,7 @@ import { CardComponent } from 'src/app/components/card/card.component';
     MatButtonModule,
     MatCardModule,
     MatIconModule,
+    MatCheckboxModule,
   ],
   exports: [
     HomeComponent,

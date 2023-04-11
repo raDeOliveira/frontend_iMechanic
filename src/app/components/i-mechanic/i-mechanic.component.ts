@@ -1,4 +1,5 @@
-import { AfterViewInit, Component, ElementRef, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, ElementRef, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ButtonIconRound } from 'src/app/model/btn-icon-round.model';
 import { ApiService } from 'src/app/service/api.service';
@@ -18,9 +19,8 @@ export class IMechanicComponent implements OnInit {
   selectedFuel: any;
   selectedBrand: any;
   selectedModel: any;
-  selectedCar: any;
-
   selectedOption: any;
+  selectedCar: any;
 
   constructor(private route: Router, private apiService: ApiService) { }
 
@@ -64,11 +64,11 @@ export class IMechanicComponent implements OnInit {
   };
 
   // get selected car
-  // getSelectedCar() {
-  //   this.apiService.getSelectedCar().subscribe(
-  //     selectedCar => this.selectedCar = selectedCar
-  //   )
-  // };
+  getSelectedCar(brand: string, model: string, fuel: string, option: string) {
+    this.apiService.getSelectedCar(brand, model, fuel, option).subscribe(
+      selectedCar => this.selectedCar = selectedCar
+    );
+  };
 
   // back button
   clickMe = () => {
@@ -82,13 +82,27 @@ export class IMechanicComponent implements OnInit {
   //   this.selectedModel = value;
   // }
 
+  // get values from dropdowns
+  onSelectionChange(opened: boolean) {
+    if (!opened && this.selectedFuel && this.selectedModel && this.selectedBrand) {
+      this.getOptionCar(this.selectedBrand, this.selectedModel, this.selectedFuel);
+    };
+
+    if (!opened && this.selectedFuel && this.selectedModel && this.selectedBrand && this.selectedOption) {
+      this.getSelectedCar(this.selectedBrand, this.selectedModel, this.selectedFuel, this.selectedOption);
+      console.log(this.selectedCar);
+    };
+  };
+
+  onChangeSelectedCar(opened: boolean) {
+
+  };
+
   ngOnInit(): void {
     this.getAllBrands();
     this.getAllFuels();
 
-    // this.getOptionCar('VOLVO', 'VOLVO S40 2004 - 2007', this.selectedFuel);
-    // this.getOptionCar(this.selectedBrand, this.selectedModel, this.selectedFuel);
   };
 
-}
+};
 

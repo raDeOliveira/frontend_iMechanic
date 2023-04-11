@@ -5,7 +5,7 @@
         <mat-form-field style="max-width: 600px;" appearance="fill">
             <mat-label>Select Fuel Type</mat-label>
             <!-- <mat-select [(value)]="selectedFuel" (selectionChange)="getFuelValue($event.value)"> -->
-            <mat-select [(value)]="selectedFuel">
+            <mat-select [(value)]="selectedFuel" (openedChange)="onSelectionChange($event)">
                 <mat-option *ngFor="let fuel of allFuels" value={{fuel}}>{{fuel}}</mat-option>
             </mat-select>
         </mat-form-field>
@@ -13,7 +13,8 @@
         <!-- get brand -->
         <mat-form-field appearance="fill">
             <mat-label>Select Brand</mat-label>
-            <mat-select [(value)]="selectedBrand" (selectionChange)="getAllModelsByBrand($event.value)">
+            <mat-select [(value)]="selectedBrand" (selectionChange)="getAllModelsByBrand($event.value)"
+                (openedChange)="onSelectionChange($event)">
                 <mat-option *ngFor="let brand of allBrands" value="{{brand}}">{{brand}}</mat-option>
             </mat-select>
         </mat-form-field>
@@ -22,7 +23,7 @@
         <mat-form-field appearance="fill">
             <mat-label>Select Model</mat-label>
             <!-- <mat-select [(value)]="selectedModel" (selectionChange)="getModelValue($event.value)"> -->
-            <mat-select [(value)]="selectedModel">
+            <mat-select [(value)]="selectedModel" (openedChange)="onSelectionChange($event)">
                 <mat-option *ngFor="let model of allModels" value={{model}}>{{model}}</mat-option>
             </mat-select>
         </mat-form-field>
@@ -30,7 +31,7 @@
         <!-- get option -->
         <mat-form-field appearance="fill">
             <mat-label>Select Engine Type</mat-label>
-            <mat-select (value)="getOptionCar(this.selectedBrand, this.selectedModel , this.selectedFuel)">
+            <mat-select [(value)]="selectedOption" (openedChange)="onSelectionChange($event)">
                 <mat-option *ngFor="let option of allOptions" value={{option}}>{{option}}</mat-option>
             </mat-select>
         </mat-form-field>
