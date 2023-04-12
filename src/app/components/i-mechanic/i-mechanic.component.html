@@ -36,16 +36,73 @@
             </mat-select>
         </mat-form-field>
 
-        <!-- selected car -->
-        <!-- <mat-form-field appearance="fill">
-            <mat-label>Select</mat-label>
-            <mat-select>
-                <mat-option value={{selectedCar}}>{{selectedCar}}</mat-option>
-            </mat-select>
-        </mat-form-field> -->
-
     </mat-card>
 </div>
+<!-- selected car -->
+<section class="example-container mat-elevation-z8" tabindex="0">
+    <table mat-table [dataSource]="this.selectedCar">
+
+        <ng-container matColumnDef="url">
+            <th mat-header-cell *matHeaderCellDef> URL </th>
+            <td mat-cell *matCellDef="let element"> {{element.url}} </td>
+        </ng-container>
+        <ng-container matColumnDef="brakes_Front">
+            <th mat-header-cell *matHeaderCellDef> Brakes front </th>
+            <td mat-cell *matCellDef="let element"> {{element.brakes_Front}} </td>
+        </ng-container>
+        <ng-container matColumnDef="brakes_Rear">
+            <th mat-header-cell *matHeaderCellDef> Brakes rear </th>
+            <td mat-cell *matCellDef="let element"> {{element.brakes_Rear}} </td>
+        </ng-container>
+        <ng-container matColumnDef="engine_C2o">
+            <th mat-header-cell *matHeaderCellDef> CO2 </th>
+            <td mat-cell *matCellDef="let element"> {{element.engine_C2o}} </td>
+        </ng-container>
+        <ng-container matColumnDef="engine_Cylinders">
+            <th mat-header-cell *matHeaderCellDef> Cylinders </th>
+            <td mat-cell *matCellDef="let element"> {{element.engine_Cylinders}} </td>
+        </ng-container>
+        <ng-container matColumnDef="engine_Displacement">
+            <th mat-header-cell *matHeaderCellDef> Engine litter </th>
+            <td mat-cell *matCellDef="let element"> {{element.engine_Displacement}} </td>
+        </ng-container>
+        <ng-container matColumnDef="engine_Fuel">
+            <th mat-header-cell *matHeaderCellDef> Fuel </th>
+            <td mat-cell *matCellDef="let element"> {{element.engine_Fuel}} </td>
+        </ng-container>
+        <ng-container matColumnDef="engine_Fuel_System">
+            <th mat-header-cell *matHeaderCellDef> Engine system </th>
+            <td mat-cell *matCellDef="let element"> {{element.engine_Fuel_System}} </td>
+        </ng-container>
+        <ng-container matColumnDef="engine_Max_Power">
+            <th mat-header-cell *matHeaderCellDef> Max power </th>
+            <td mat-cell *matCellDef="let element"> {{element.engine_Max_Power}} </td>
+        </ng-container>
+        <ng-container matColumnDef="engine_Torque">
+            <th mat-header-cell *matHeaderCellDef> Torque </th>
+            <td mat-cell *matCellDef="let element"> {{element.engine_Torque}} </td>
+        </ng-container>
+        <ng-container matColumnDef="fuel_Economy_Combined">
+            <th mat-header-cell *matHeaderCellDef> Fuel economy combined </th>
+            <td mat-cell *matCellDef="let element"> {{element.fuel_Economy_Combined}} </td>
+        </ng-container>
+        <ng-container matColumnDef="performance_Top_Speed">
+            <th mat-header-cell *matHeaderCellDef> Top speed </th>
+            <td mat-cell *matCellDef="let element"> {{element.performance_Top_Speed}} </td>
+        </ng-container>
+        <ng-container matColumnDef="transmission_Drive_Type">
+            <th mat-header-cell *matHeaderCellDef> Transmission </th>
+            <td mat-cell *matCellDef="let element"> {{element.transmission_Drive_Type}} </td>
+        </ng-container>
+        <ng-container matColumnDef="transmission_Gearbox">
+            <th mat-header-cell *matHeaderCellDef> Gearbox </th>
+            <td mat-cell *matCellDef="let element"> {{element.transmission_Gearbox}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</section>
 
 <app-button-icon-round [data]="questionsBtn" (click)="redirectToiReport()"></app-button-icon-round>
 iReport

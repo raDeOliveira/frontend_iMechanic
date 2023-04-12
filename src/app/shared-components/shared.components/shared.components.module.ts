@@ -16,6 +16,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatTableModule } from '@angular/material/table';
 
 
 import { ButtonsComponent } from 'src/app/components/buttons/buttons.component';
@@ -53,6 +54,7 @@ import { CardComponent } from 'src/app/components/card/card.component';
     MatCardModule,
     MatIconModule,
     MatCheckboxModule,
+    MatTableModule,
   ],
   exports: [
     HomeComponent,

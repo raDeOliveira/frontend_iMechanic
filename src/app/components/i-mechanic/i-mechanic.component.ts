@@ -1,5 +1,4 @@
-import { AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, ElementRef, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ButtonIconRound } from 'src/app/model/btn-icon-round.model';
 import { ApiService } from 'src/app/service/api.service';
@@ -21,6 +20,24 @@ export class IMechanicComponent implements OnInit {
   selectedModel: any;
   selectedOption: any;
   selectedCar: any;
+
+  displayedColumns = [
+    'url',
+    'brakes_Front',
+    'brakes_Rear',
+    'engine_C2o',
+    'engine_Cylinders',
+    'engine_Displacement',
+    'engine_Fuel',
+    'engine_Fuel_System',
+    'engine_Max_Power',
+    'engine_Torque',
+    'fuel_Economy_Combined',
+    'performance_Top_Speed',
+    'transmission_Drive_Type',
+    'transmission_Gearbox'
+  ];
+  dataSource: any;
 
   constructor(private route: Router, private apiService: ApiService) { }
 
@@ -75,13 +92,6 @@ export class IMechanicComponent implements OnInit {
     this.route.navigate(['/']);
   };
 
-  // getFuelValue(value: any) {
-  //   this.selectedFuel = value;
-  // }
-  // getModelValue(value: any) {
-  //   this.selectedModel = value;
-  // }
-
   // get values from dropdowns
   onSelectionChange(opened: boolean) {
     if (!opened && this.selectedFuel && this.selectedModel && this.selectedBrand) {
@@ -90,12 +100,9 @@ export class IMechanicComponent implements OnInit {
 
     if (!opened && this.selectedFuel && this.selectedModel && this.selectedBrand && this.selectedOption) {
       this.getSelectedCar(this.selectedBrand, this.selectedModel, this.selectedFuel, this.selectedOption);
+      this.dataSource = this.selectedCar;
       console.log(this.selectedCar);
     };
-  };
-
-  onChangeSelectedCar(opened: boolean) {
-
   };
 
   ngOnInit(): void {
