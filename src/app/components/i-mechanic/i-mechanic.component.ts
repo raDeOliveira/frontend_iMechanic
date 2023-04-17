@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ButtonIconRound } from 'src/app/model/btn-icon-round.model';
+import { Car } from 'src/app/model/car';
 import { ApiService } from 'src/app/service/api.service';
 
 @Component({
@@ -19,10 +20,10 @@ export class IMechanicComponent implements OnInit {
   selectedBrand: any;
   selectedModel: any;
   selectedOption: any;
-  selectedCar: any;
+  selectedCar: any[] = [];
 
+  // table columns
   displayedColumns = [
-    'url',
     'brakes_Front',
     'brakes_Rear',
     'engine_C2o',
@@ -37,7 +38,9 @@ export class IMechanicComponent implements OnInit {
     'transmission_Drive_Type',
     'transmission_Gearbox'
   ];
-  dataSource: any;
+
+  imgTrue: boolean = false;
+  showTable: boolean = false;
 
   constructor(private route: Router, private apiService: ApiService) { }
 
@@ -87,11 +90,6 @@ export class IMechanicComponent implements OnInit {
     );
   };
 
-  // back button
-  clickMe = () => {
-    this.route.navigate(['/']);
-  };
-
   // get values from dropdowns
   onSelectionChange(opened: boolean) {
     if (!opened && this.selectedFuel && this.selectedModel && this.selectedBrand) {
@@ -100,15 +98,21 @@ export class IMechanicComponent implements OnInit {
 
     if (!opened && this.selectedFuel && this.selectedModel && this.selectedBrand && this.selectedOption) {
       this.getSelectedCar(this.selectedBrand, this.selectedModel, this.selectedFuel, this.selectedOption);
-      this.dataSource = this.selectedCar;
-      console.log(this.selectedCar);
+
+      // show table and img
+      this.imgTrue = true;
+      this.showTable = true;
     };
+  };
+
+  // create hyperlink
+  createHyperlink(url: string) {
+    return '<a>' + url + '</a>';
   };
 
   ngOnInit(): void {
     this.getAllBrands();
     this.getAllFuels();
-
   };
 
 };

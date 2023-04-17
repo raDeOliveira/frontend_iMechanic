@@ -1,4 +1,57 @@
-.my-card {
+.select-car {
   width: 600px;
-  padding: 5px;
+}
+
+.car-specs {
+  margin: 5px;
+  padding: 10px;
+  width: 800px;
+  border-collapse: collapse;
+}
+
+.styled-table {
+  text-transform: uppercase;
+  border: 1px solid #000000;
+  border-collapse: collapse;
+  margin: 5px 0;
+  font-size: 0.7em;
+  font-family: sans-serif;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table thead tr {
+  background-color: #679479;
+  color: #ffffff;
+}
+
+.styled-table th,
+.styled-table td {
+  padding: 5px 5px;
+}
+
+.styled-table tbody td {
+  background-color: #679479;
+  color: #ffffff;
+}
+
+.car-title {
+  border: 1px solid #000000;
+  font-size: 1.5em;
+  background-color: #679479;
+  color: #ffffff;
+}
+
+.first-span {
+  background-color: white;
+  display: inline-block;
+  padding: 2px 5px;
+}
+
+.second-span {
+  flex: 1;
+  border-bottom: 2px dotted #000000;
+}
+
+a:link {
+  text-decoration: none;
 }
