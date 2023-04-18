@@ -1,8 +1,12 @@
 <div fxLayoutAlign="center center">
+    <mat-card-title class="title" fxLayoutAlign="center center">Select your car</mat-card-title>
+</div>
+
+<div fxLayoutAlign="center center">
     <mat-card class="select-car">
 
         <!-- get fuel -->
-        <mat-form-field appearance="fill">
+        <mat-form-field>
             <mat-label>Select Fuel Type</mat-label>
             <!-- <mat-select [(value)]="selectedFuel" (selectionChange)="getFuelValue($event.value)"> -->
             <mat-select [(value)]="selectedFuel" (openedChange)="onSelectionChange($event)">
@@ -40,15 +44,14 @@
 </div>
 
 <!-- selected car -->
-<div fxLayoutAlign="start center">
-    <mat-card class="car-specs">
+<div fxLayoutAlign="center center">
+    <mat-card class="car-specs" *ngIf="showTable">
         <mat-card-title fxLayoutAlign="center center" class="car-title">
             {{selectedModel}}
         </mat-card-title>
 
         <div fxLayout="column" *ngFor="let item of displayedColumns">
-            <!-- <table class="car-specs" *ngIf="showTable"> -->
-            <table class="styled-table">
+            <table class="styled-table" *ngIf="showTable">
                 <tr fxLayoutAlign="space-between center">
                     <thead>
                         <tr>
@@ -66,22 +69,12 @@
                 </tr>
             </table>
         </div>
-        <table class="styled-table">
-            <tr fxLayoutAlign="space-between center">
-                <thead>
-                    <tr>
-                        <th class="table-columns">URL</th>
-                    </tr>
-                </thead>
-                <span class="first-span"></span>
-                <span class="second-span"></span>
-                <span class="first-span"></span>
-                <tbody>
-                    <div class="car-url" *ngFor="let i of selectedCar">
-                        <td><a href="{{i.url}}">See full car specs</a></td>
-                    </div>
-                </tbody>
-            </tr>
+        <table class="styled-table" *ngIf="showTable">
+            <mat-card-title fxLayoutAlign="center center" class="car-title">
+                <div *ngFor="let i of selectedCar">
+                    <td><a href="{{i.url}}" target="_blank">See full car specs</a></td>
+                </div>
+            </mat-card-title>
         </table>
     </mat-card>
 </div>
