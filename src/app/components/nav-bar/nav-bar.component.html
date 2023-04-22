@@ -12,13 +12,15 @@
                 <!-- check if user is authenticated -->
                 <mat-card-actions>
                     <div *ngIf="!isUserAuthenticated()">
-                        <!-- <app-buttons [buttons]="buttons"></app-buttons> -->
+                        <!-- login -->
                         <app-button-icon-round [data]="loginBtn" (click)="redirectToLogin()">
                         </app-button-icon-round>
+                        Login
 
                         <!-- home button -->
                         <app-button-icon-round [data]="backBtn" (click)="redirectToHome()">
                         </app-button-icon-round>
+                        Home
                     </div>
 
                     <!-- check if user is authenticated -->

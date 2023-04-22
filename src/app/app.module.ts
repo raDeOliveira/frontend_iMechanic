@@ -11,6 +11,7 @@ import { AuthGuardComponent } from './components/guards/auth.guard.component';
 import { MatSelectModule } from '@angular/material/select';
 import { SharedComponentsModule } from './shared-components/shared.components/shared.components.module';
 
+
 export function tokenGetter() {
   return localStorage.getItem('jwt');
 }

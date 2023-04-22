@@ -24,14 +24,11 @@ export class IMechanicComponent implements OnInit {
 
   // table columns
   displayedColumns = [
-    'brakes_Front',
-    'brakes_Rear',
-    'engine_C2o',
     'engine_Cylinders',
     'engine_Displacement',
     'engine_Fuel',
     'engine_Fuel_System',
-    'engine_Max_Power',
+    'engine_Power',
     'engine_Torque',
     'fuel_Economy_Combined',
     'performance_Top_Speed',
@@ -40,20 +37,38 @@ export class IMechanicComponent implements OnInit {
   ];
 
   imgTrue: boolean = false;
-  showTable: boolean = false;
+  showCarSpecs: boolean = false;
+  showSelectCar: boolean = true;
 
   constructor(private route: Router, private apiService: ApiService) { }
 
   // redirect to iReport
   redirectToiReport(): any {
     this.route.navigate(['/iReport']);
-    console.log('redirect to iReport')
   }
 
   questionsBtn: ButtonIconRound = {
     nameIcon: 'start',
     backgroundColor: '#8ac53f',
     foregroundColor: '#ffffff',
+    data: '',
+    size: 50,
+    output: this.redirectToiReport
+  };
+
+  changeCar: ButtonIconRound = {
+    nameIcon: 'restart_alt',
+    backgroundColor: '#476452',
+    foregroundColor: '#000000',
+    data: '',
+    size: 50,
+    output: this.redirectToiReport
+  };
+
+  iReport: ButtonIconRound = {
+    nameIcon: 'quiz',
+    backgroundColor: '#476452',
+    foregroundColor: '#000000',
     data: '',
     size: 50,
     output: this.redirectToiReport
@@ -101,13 +116,17 @@ export class IMechanicComponent implements OnInit {
 
       // show table and img
       this.imgTrue = true;
-      this.showTable = true;
+      this.showCarSpecs = true;
+      this.showSelectCar = false;
     };
   };
 
-  // create hyperlink
-  createHyperlink(url: string) {
-    return '<a>' + url + '</a>';
+  // back button
+  goBack = () => {
+    this.showCarSpecs = false;
+    this.showSelectCar = true;
+    window.location.reload();
+
   };
 
   ngOnInit(): void {

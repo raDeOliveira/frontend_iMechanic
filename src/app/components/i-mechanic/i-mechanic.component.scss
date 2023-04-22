@@ -1,64 +1,81 @@
+.title-div {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
 .title {
-  margin: 25px;
-  padding: 5px;
-  border: 1px solid #000000;
+  text-transform: uppercase;
+  border: 2px solid #000000;
   font-size: 1.5em;
+  font-weight: bold;
+  font-family: "Courier New", Courier, monospace;
   background-color: #679479;
-  color: #ffffff;
-  width: 950px;
+  width: 80%;
+  border-radius: 5px;
+}
+
+.labels {
+  color: #000000;
+  font-size: 1.2em;
+  font-weight: bold;
+  font-family: "Courier New", Courier, monospace;
 }
 
 .select-car {
-  margin: 25px;
+  margin: 10px;
   padding: 20px;
-  border: 1px solid #000000;
+  border: 2px solid #000000;
   border-radius: 5px;
   background-color: #679479;
-  width: 800px;
+  width: 900px;
+}
+
+.divider-div {
+  padding-top: 50px;
+}
+
+.divider {
+  width: 900px;
+  background-color: #000000;
+}
+
+.car-specs-div {
+  padding-top: 50px;
 }
 
 .car-specs {
   margin: 5px;
   padding: 10px;
-  width: 800px;
+  width: 700px;
+  border: 2px solid #000000;
   border-collapse: collapse;
   background-color: #679479;
 }
 
 .styled-table {
   text-transform: uppercase;
-  border: 1px solid #000000;
-  border-collapse: collapse;
+  border: 2px solid #000000;
+  border-radius: 5px;
   margin: 5px 0;
-  font-size: 0.7em;
-  font-family: sans-serif;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-}
-
-.styled-table thead tr {
-  background-color: #f5f5f5;
-  color: #000000;
-}
-
-.styled-table th,
-.styled-table td {
-  padding: 5px 5px;
-}
-
-.styled-table tbody td {
-  background-color: #679479;
-  color: #ffffff;
+  font-size: 0.8em;
+  font-family: "Courier New", Courier, monospace;
 }
 
 .car-title {
-  border: 1px solid #000000;
+  border-radius: 5px;
+  border: 2px solid #000000;
   font-size: 1.5em;
-  background-color: #679479;
-  color: #ffffff;
+  background-color: #f5f5f5;
+  font-weight: bold;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.table-tr {
+  background-color: #f5f5f5;
 }
 
 .first-span {
-  background-color: white;
+  background-color: #f5f5f5;
   display: inline-block;
   padding: 2px 5px;
 }
@@ -68,10 +85,20 @@
   border-bottom: 2px dotted #000000;
 }
 
+.table-values {
+  font-weight: bold;
+}
+
+.footer-btns {
+  padding-top: 50px;
+}
+
 a {
-  color: #ffffff;
+  color: #000000;
   position: relative;
   text-decoration: none;
+  font-weight: bold;
+  font-family: "Courier New", Courier, monospace;
 }
 
 a::before {
@@ -91,4 +118,8 @@ a::before {
 a:hover::before {
   transform-origin: left;
   transform: scaleX(1);
+}
+
+.car-footer {
+  background-color: #f5f5f5;
 }

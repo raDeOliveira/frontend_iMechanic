@@ -17,6 +17,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTableModule } from '@angular/material/table';
+import { MatDividerModule } from '@angular/material/divider';
 
 
 import { ButtonsComponent } from 'src/app/components/buttons/buttons.component';
@@ -26,6 +27,7 @@ import { NavBarComponent } from 'src/app/components/nav-bar/nav-bar.component';
 import { FooterComponent } from 'src/app/components/footer/footer.component';
 import { QuestionsComponent } from 'src/app/components/questions/questions.component';
 import { CardComponent } from 'src/app/components/card/card.component';
+import { SelectCarComponent } from 'src/app/components/select-car/select-car.component';
 
 @NgModule({
   providers: [ApiService],
@@ -39,7 +41,8 @@ import { CardComponent } from 'src/app/components/card/card.component';
     ButtonsComponent,
     ButtonIconRoundComponent,
     QuestionsComponent,
-    CardComponent
+    CardComponent,
+    SelectCarComponent
 
   ],
   imports: [
@@ -55,6 +58,7 @@ import { CardComponent } from 'src/app/components/card/card.component';
     MatIconModule,
     MatCheckboxModule,
     MatTableModule,
+    MatDividerModule,
   ],
   exports: [
     HomeComponent,
@@ -66,7 +70,8 @@ import { CardComponent } from 'src/app/components/card/card.component';
     ButtonsComponent,
     ButtonIconRoundComponent,
     QuestionsComponent,
-    CardComponent
+    CardComponent,
+    SelectCarComponent
   ],
 })
 export class SharedComponentsModule { }
