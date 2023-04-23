@@ -13,7 +13,7 @@
                 <mat-card-actions>
                     <div *ngIf="!isUserAuthenticated()">
                         <!-- login -->
-                        <app-button-icon-round [data]="loginBtn" (click)="redirectToLogin()">
+                        <app-button-icon-round [data]="loginBtn" [data]="loginBtn" (click)="redirectToLogin()">
                         </app-button-icon-round>
                         Login
 

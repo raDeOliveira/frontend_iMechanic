@@ -40,6 +40,9 @@ export class IMechanicComponent implements OnInit {
   showCarSpecs: boolean = false;
   showSelectCar: boolean = true;
 
+  configuration: any
+
+
   constructor(private route: Router, private apiService: ApiService) { }
 
   // redirect to iReport
@@ -51,8 +54,6 @@ export class IMechanicComponent implements OnInit {
     nameIcon: 'start',
     backgroundColor: '#8ac53f',
     foregroundColor: '#ffffff',
-    data: '',
-    size: 50,
     output: this.redirectToiReport
   };
 
@@ -60,8 +61,7 @@ export class IMechanicComponent implements OnInit {
     nameIcon: 'restart_alt',
     backgroundColor: '#476452',
     foregroundColor: '#000000',
-    data: '',
-    size: 50,
+    hover: '#a8d175',
     output: this.redirectToiReport
   };
 
@@ -69,8 +69,7 @@ export class IMechanicComponent implements OnInit {
     nameIcon: 'quiz',
     backgroundColor: '#476452',
     foregroundColor: '#000000',
-    data: '',
-    size: 50,
+    hover: '#a8d175',
     output: this.redirectToiReport
   };
 
@@ -128,6 +127,8 @@ export class IMechanicComponent implements OnInit {
     window.location.reload();
 
   };
+
+
 
   ngOnInit(): void {
     this.getAllBrands();

@@ -39,8 +39,7 @@ export class NavBarComponent implements OnInit {
     nameIcon: 'login',
     backgroundColor: '#476452',
     foregroundColor: '#ffffff',
-    data: '',
-    size: 50,
+    hover: '#a8d175',
     output: this.redirectToLogin
   };
 
@@ -49,19 +48,14 @@ export class NavBarComponent implements OnInit {
     nameIcon: 'home',
     backgroundColor: '#476452',
     foregroundColor: '#ffffff',
-    data: '',
-    size: 50,
-    // output: this.redirectToLogin
+    hover: '#a8d175',
   };
 
   // logout button
   logoutBtn: ButtonIconRound = {
     nameIcon: 'logout',
     backgroundColor: '#b23b3b',
-    foregroundColor: '#ffffff',
-    data: '',
-    size: 50,
-    // output: this.redirectToLogin
+    foregroundColor: '#ffffff'
   };
 
   // redirect to login page

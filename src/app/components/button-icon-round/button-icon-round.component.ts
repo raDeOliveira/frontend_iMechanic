@@ -8,20 +8,36 @@ import { ButtonIconRound } from 'src/app/model/btn-icon-round.model';
 })
 export class ButtonIconRoundComponent implements OnInit {
 
+  hover: boolean = false;
+
   constructor() { }
 
   @Input() data!: ButtonIconRound;
 
+  mouseIn() {
+    this.hover = true;
+  };
+
+  mouseOut() {
+    this.hover = false;
+  };
+
   // set button styles
   setStyles(): any {
-    const styles = {
-      'background-color': this.data.backgroundColor,
-      'color': this.data.foregroundColor,
-      'margin': '5px',
-      width: (this.data.size ? this.data.size : '') + 'px',
-      height: (this.data.size ? this.data.size : '') + 'px'
-    };
-    return styles;
+
+    if (this.hover) {
+      const styles = {
+        'background-color': this.data.hover,
+        'color': '#ffffff',
+      };
+      return styles;
+    } else {
+      const styles = {
+        'background-color': this.data.backgroundColor,
+        'color': '#ffffff',
+      };
+      return styles;
+    }
   };
 
   // set mat-icon style
