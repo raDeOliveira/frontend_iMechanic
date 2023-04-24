@@ -18,6 +18,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTableModule } from '@angular/material/table';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 import { ButtonsComponent } from 'src/app/components/buttons/buttons.component';
@@ -27,7 +28,7 @@ import { NavBarComponent } from 'src/app/components/nav-bar/nav-bar.component';
 import { FooterComponent } from 'src/app/components/footer/footer.component';
 import { QuestionsComponent } from 'src/app/components/questions/questions.component';
 import { CardComponent } from 'src/app/components/card/card.component';
-import { SelectCarComponent } from 'src/app/components/select-car/select-car.component';
+import { ProgressSpinnerComponent } from 'src/app/components/progress-spinner/progress-spinner.component';
 
 @NgModule({
   providers: [ApiService],
@@ -42,7 +43,7 @@ import { SelectCarComponent } from 'src/app/components/select-car/select-car.com
     ButtonIconRoundComponent,
     QuestionsComponent,
     CardComponent,
-    SelectCarComponent
+    ProgressSpinnerComponent
 
   ],
   imports: [
@@ -59,6 +60,7 @@ import { SelectCarComponent } from 'src/app/components/select-car/select-car.com
     MatCheckboxModule,
     MatTableModule,
     MatDividerModule,
+    MatProgressSpinnerModule,
   ],
   exports: [
     HomeComponent,
@@ -71,7 +73,7 @@ import { SelectCarComponent } from 'src/app/components/select-car/select-car.com
     ButtonIconRoundComponent,
     QuestionsComponent,
     CardComponent,
-    SelectCarComponent
+    ProgressSpinnerComponent
   ],
 })
 export class SharedComponentsModule { }

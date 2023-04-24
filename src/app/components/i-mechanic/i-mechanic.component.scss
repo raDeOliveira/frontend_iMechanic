@@ -123,3 +123,11 @@ a:hover::before {
 .car-footer {
   background-color: #f5f5f5;
 }
+
+.spinner {
+  height: 500px;
+}
+
+::ng-deep .spinner circle {
+  stroke: #679479 !important;
+}

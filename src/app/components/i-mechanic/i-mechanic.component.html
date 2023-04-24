@@ -7,6 +7,9 @@
         </mat-card-title>
     </div>
 
+    <!-- spinner -->
+    <app-progress-spinner class="spinner" fxLayoutAlign="center center" *ngIf="showSpinner"></app-progress-spinner>
+
     <div fxLayoutAlign="center center">
         <mat-card *ngIf="showSelectCar" class="select-car">
 

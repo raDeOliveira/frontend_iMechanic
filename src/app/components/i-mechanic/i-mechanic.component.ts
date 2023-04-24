@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ButtonIconRound } from 'src/app/model/btn-icon-round.model';
-import { Car } from 'src/app/model/car';
 import { ApiService } from 'src/app/service/api.service';
 
 @Component({
@@ -36,11 +35,9 @@ export class IMechanicComponent implements OnInit {
     'transmission_Gearbox'
   ];
 
-  imgTrue: boolean = false;
+  showSpinner!: boolean;
   showCarSpecs: boolean = false;
   showSelectCar: boolean = true;
-
-  configuration: any
 
 
   constructor(private route: Router, private apiService: ApiService) { }
@@ -113,8 +110,7 @@ export class IMechanicComponent implements OnInit {
     if (!opened && this.selectedFuel && this.selectedModel && this.selectedBrand && this.selectedOption) {
       this.getSelectedCar(this.selectedBrand, this.selectedModel, this.selectedFuel, this.selectedOption);
 
-      // show table and img
-      this.imgTrue = true;
+      // show table
       this.showCarSpecs = true;
       this.showSelectCar = false;
     };
@@ -123,12 +119,10 @@ export class IMechanicComponent implements OnInit {
   // back button
   goBack = () => {
     this.showCarSpecs = false;
-    this.showSelectCar = true;
-    window.location.reload();
-
+    this.showSpinner = true;
+    setTimeout(() => this.showSpinner = false, 1000);
+    setTimeout(() => window.location.reload(), 500);
   };
-
-
 
   ngOnInit(): void {
     this.getAllBrands();
