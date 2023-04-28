@@ -10,8 +10,8 @@ const routes: Routes = [
   { path: 'home', loadChildren: () => import('./components/home/home.module').then((m) => m.HomeModule), },
   { path: 'login', component: LoginComponent },
   { path: 'iReport', component: QuestionsComponent },
-  // { path: 'iMechanic', component: IMechanicComponent, canActivate: [AuthGuardComponent] },
-  { path: 'iMechanic', component: IMechanicComponent },
+  { path: 'iMechanic', component: IMechanicComponent, canActivate: [AuthGuardComponent] },
+  // { path: 'iMechanic', component: IMechanicComponent },
 ];
 
 @NgModule({

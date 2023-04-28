@@ -11,18 +11,19 @@ import { ApiService } from 'src/app/service/api.service';
 })
 export class NavBarComponent implements OnInit {
 
-  userInSession = '';
+  isUserActive: any
+  token: any | string;
 
-  constructor(private route: Router, private apiService: ApiService, private jwtHelper: JwtHelperService) {
-    this.apiService.userInSession.subscribe(user =>
-      this.userInSession = user
-    );
-  }
+  constructor(private route: Router, private apiService: ApiService, private jwtHelper: JwtHelperService) { }
 
   // check if user is authenticated
   isUserAuthenticated = (): boolean => {
-    const token = localStorage.getItem('jwt');
-    if (token && !this.jwtHelper.isTokenExpired(token)) {
+    this.token = localStorage.getItem('jwt');
+    if (this.token && !this.jwtHelper.isTokenExpired(this.token)) {
+      this.apiService.userInSession.subscribe(user =>
+        localStorage.setItem('isUserActive', user)
+      );
+      this.isUserActive = localStorage.getItem('isUserActive');
       return true;
     }
     return false;
@@ -55,7 +56,8 @@ export class NavBarComponent implements OnInit {
   logoutBtn: ButtonIconRound = {
     nameIcon: 'logout',
     backgroundColor: '#b23b3b',
-    foregroundColor: '#ffffff'
+    foregroundColor: '#ffffff',
+    hover: '#e57373',
   };
 
   // redirect to login page
@@ -69,5 +71,5 @@ export class NavBarComponent implements OnInit {
   };
 
   ngOnInit(): void {
-  }
+  };
 }

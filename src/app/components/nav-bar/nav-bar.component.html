@@ -8,12 +8,14 @@
                 </mat-card-title>
             </div>
 
-            <div>
+            <div class="div-card-actions">
+
                 <!-- check if user is authenticated -->
                 <mat-card-actions>
                     <div *ngIf="!isUserAuthenticated()">
+
                         <!-- login -->
-                        <app-button-icon-round [data]="loginBtn" [data]="loginBtn" (click)="redirectToLogin()">
+                        <app-button-icon-round [data]="loginBtn" (click)="redirectToLogin()">
                         </app-button-icon-round>
                         Login
 
@@ -25,10 +27,9 @@
 
                     <!-- check if user is authenticated -->
                     <div *ngIf="isUserAuthenticated()">
+                        {{isUserActive}}
                         <app-button-icon-round [data]="logoutBtn" (click)="logOut()">Logout
                         </app-button-icon-round>
-                        <!-- BUG check why name looses after refresh browser -->
-                        {{userInSession}}
                     </div>
                 </mat-card-actions>
             </div>

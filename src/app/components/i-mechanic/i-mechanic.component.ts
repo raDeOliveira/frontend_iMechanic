@@ -38,6 +38,7 @@ export class IMechanicComponent implements OnInit {
   showSpinner!: boolean;
   showCarSpecs: boolean = false;
   showSelectCar: boolean = true;
+  static userInSession: any;
 
 
   constructor(private route: Router, private apiService: ApiService) { }
@@ -47,27 +48,29 @@ export class IMechanicComponent implements OnInit {
     this.route.navigate(['/iReport']);
   }
 
-  questionsBtn: ButtonIconRound = {
-    nameIcon: 'start',
-    backgroundColor: '#8ac53f',
-    foregroundColor: '#ffffff',
-    output: this.redirectToiReport
-  };
-
+  // button
   changeCar: ButtonIconRound = {
     nameIcon: 'restart_alt',
     backgroundColor: '#476452',
     foregroundColor: '#000000',
     hover: '#a8d175',
-    output: this.redirectToiReport
   };
 
+  // button
   iReport: ButtonIconRound = {
     nameIcon: 'quiz',
     backgroundColor: '#476452',
     foregroundColor: '#000000',
     hover: '#a8d175',
     output: this.redirectToiReport
+  };
+
+  // button
+  bike: ButtonIconRound = {
+    nameIcon: 'two_wheeler',
+    backgroundColor: '#476452',
+    foregroundColor: '#000000',
+    hover: '#a8d175'
   };
 
   // get all brands

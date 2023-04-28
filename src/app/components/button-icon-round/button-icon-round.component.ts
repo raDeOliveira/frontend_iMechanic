@@ -8,11 +8,11 @@ import { ButtonIconRound } from 'src/app/model/btn-icon-round.model';
 })
 export class ButtonIconRoundComponent implements OnInit {
 
+  @Input() data!: ButtonIconRound;
   hover: boolean = false;
 
   constructor() { }
 
-  @Input() data!: ButtonIconRound;
 
   mouseIn() {
     this.hover = true;
@@ -29,12 +29,16 @@ export class ButtonIconRoundComponent implements OnInit {
       const styles = {
         'background-color': this.data.hover,
         'color': '#ffffff',
+        'width': this.data.width,
+        'height': this.data.height
       };
       return styles;
     } else {
       const styles = {
         'background-color': this.data.backgroundColor,
         'color': '#ffffff',
+        'width': this.data.width,
+        'height': this.data.height
       };
       return styles;
     }

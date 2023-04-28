@@ -1,11 +1,14 @@
 <div fxShow fxHide.xs="false" fxHide.lg="false">
+
     <div *ngIf="showSelectCar" class="title-div" fxLayoutAlign="center center">
         <mat-card-title class="title" fxLayoutAlign="center center">
             <span class="second-span"></span>
-            Select your car
+            Select your ride...
             <span class="second-span"></span>
         </mat-card-title>
     </div>
+
+    <app-button-icon-round class="bike" [data]="bike"></app-button-icon-round>
 
     <!-- spinner -->
     <app-progress-spinner class="spinner" fxLayoutAlign="center center" *ngIf="showSpinner"></app-progress-spinner>

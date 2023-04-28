@@ -3,5 +3,7 @@ export interface ButtonIconRound {
     backgroundColor?: string;
     foregroundColor?: string;
     hover?: any;
+    width?: string;
+    height?: string;
     output?: () => void;
 }
