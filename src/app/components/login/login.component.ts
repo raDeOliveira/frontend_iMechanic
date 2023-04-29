@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
             localStorage.setItem('jwt', token);
             this.invalidLogin = false;
             this.apiService.getUserInSession(this.credentials.name);
-            this.router.navigate(['/iMechanic']);
+            this.router.navigate(['/home']);
           },
           error: (err: HttpErrorResponse) => (this.invalidLogin = true),
         });

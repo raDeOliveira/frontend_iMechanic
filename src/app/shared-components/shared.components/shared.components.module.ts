@@ -10,7 +10,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { ApiService } from 'src/app/service/api.service';
 import { LoginComponent } from 'src/app/components/login/login.component';
-import { IMechanicComponent } from 'src/app/components/i-mechanic/i-mechanic.component';
+import { CarComponent } from 'src/app/components/car/car.component';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -29,6 +29,7 @@ import { FooterComponent } from 'src/app/components/footer/footer.component';
 import { QuestionsComponent } from 'src/app/components/questions/questions.component';
 import { CardComponent } from 'src/app/components/card/card.component';
 import { ProgressSpinnerComponent } from 'src/app/components/progress-spinner/progress-spinner.component';
+import { BikeComponent } from 'src/app/components/bike/bike.component';
 
 @NgModule({
   providers: [ApiService],
@@ -38,12 +39,13 @@ import { ProgressSpinnerComponent } from 'src/app/components/progress-spinner/pr
     NavBarComponent,
     FooterComponent,
     LoginComponent,
-    IMechanicComponent,
+    CarComponent,
     ButtonsComponent,
     ButtonIconRoundComponent,
     QuestionsComponent,
     CardComponent,
-    ProgressSpinnerComponent
+    ProgressSpinnerComponent,
+    BikeComponent,
 
   ],
   imports: [
@@ -68,12 +70,13 @@ import { ProgressSpinnerComponent } from 'src/app/components/progress-spinner/pr
     NavBarComponent,
     FooterComponent,
     LoginComponent,
-    IMechanicComponent,
+    CarComponent,
     ButtonsComponent,
     ButtonIconRoundComponent,
     QuestionsComponent,
     CardComponent,
-    ProgressSpinnerComponent
+    ProgressSpinnerComponent,
+    BikeComponent,
   ],
 })
 export class SharedComponentsModule { }

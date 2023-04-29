@@ -5,10 +5,10 @@ import { ApiService } from 'src/app/service/api.service';
 
 @Component({
   selector: 'app-i-mechanic',
-  templateUrl: './i-mechanic.component.html',
-  styleUrls: ['./i-mechanic.component.scss'],
+  templateUrl: './car.component.html',
+  styleUrls: ['./car.component.scss'],
 })
-export class IMechanicComponent implements OnInit {
+export class CarComponent implements OnInit {
 
   allBrands = [];
   allModels = [];
@@ -38,14 +38,18 @@ export class IMechanicComponent implements OnInit {
   showSpinner!: boolean;
   showCarSpecs: boolean = false;
   showSelectCar: boolean = true;
-  static userInSession: any;
-
+  showChangeSelectedRide: boolean = false;
 
   constructor(private route: Router, private apiService: ApiService) { }
 
   // redirect to iReport
   redirectToiReport(): any {
     this.route.navigate(['/iReport']);
+  }
+
+  // redirect to iReport
+  changeSelectedRide(): any {
+    this.route.navigate(['/home']);
   }
 
   // button
@@ -61,13 +65,12 @@ export class IMechanicComponent implements OnInit {
     nameIcon: 'quiz',
     backgroundColor: '#476452',
     foregroundColor: '#000000',
-    hover: '#a8d175',
-    output: this.redirectToiReport
+    hover: '#a8d175'
   };
 
   // button
-  bike: ButtonIconRound = {
-    nameIcon: 'two_wheeler',
+  changeRide: ButtonIconRound = {
+    nameIcon: 'restart_alt',
     backgroundColor: '#476452',
     foregroundColor: '#000000',
     hover: '#a8d175'
@@ -80,9 +83,7 @@ export class IMechanicComponent implements OnInit {
 
   // get all models by brand
   getAllModelsByBrand(brand: string) {
-    this.apiService.getAllModelsByBrand(brand).subscribe(
-      model => this.allModels = model
-    );
+    this.apiService.getAllModelsByBrand(brand).subscribe(model => this.allModels = model);
   };
 
   // get all fuels
@@ -113,9 +114,10 @@ export class IMechanicComponent implements OnInit {
     if (!opened && this.selectedFuel && this.selectedModel && this.selectedBrand && this.selectedOption) {
       this.getSelectedCar(this.selectedBrand, this.selectedModel, this.selectedFuel, this.selectedOption);
 
-      // show table
+      // switch flags
       this.showCarSpecs = true;
       this.showSelectCar = false;
+      this.showChangeSelectedRide = true;
     };
   };
 

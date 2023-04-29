@@ -5,5 +5,7 @@ export interface ButtonIconRound {
     hover?: any;
     width?: string;
     height?: string;
+    size?: string
+    transform?: string
     output?: () => void;
 }

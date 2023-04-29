@@ -16,5 +16,14 @@
             </p>
         </div>
 
+        <div *ngIf="isUserAuthenticated()" class="select-ride-btns" fxLayout="row" fxLayoutAlign="space-evenly">
+            <button class="bike-btn" type="button" mat-stroked-button (click)="bikeSelected()">
+                <mat-icon class="icons">two_wheeler</mat-icon>
+            </button>
+            <button class="car-btn" type="button" mat-stroked-button (click)="carSelected()">
+                <mat-icon class="icons">directions_car</mat-icon>
+            </button>
+        </div>
+
     </div>
 </div>

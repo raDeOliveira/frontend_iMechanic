@@ -62,7 +62,7 @@ export class NavBarComponent implements OnInit {
 
   // redirect to login page
   redirectToLogin(): any {
-    this.route.navigate(['/iMechanic']);
+    this.route.navigate(['/login']);
   }
 
   // redirect to home page

@@ -30,7 +30,9 @@ export class ButtonIconRoundComponent implements OnInit {
         'background-color': this.data.hover,
         'color': '#ffffff',
         'width': this.data.width,
-        'height': this.data.height
+        'height': this.data.height,
+        'transform': this.data.transform,
+        'font-size': this.data.size
       };
       return styles;
     } else {
@@ -38,7 +40,8 @@ export class ButtonIconRoundComponent implements OnInit {
         'background-color': this.data.backgroundColor,
         'color': '#ffffff',
         'width': this.data.width,
-        'height': this.data.height
+        'height': this.data.height,
+        'font-size': this.data.size
       };
       return styles;
     }

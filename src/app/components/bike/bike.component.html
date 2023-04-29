@@ -1,0 +1,111 @@
+<div fxShow fxHide.xs="false" fxHide.lg="false">
+
+    <div *ngIf="showSelectCar" class="title-div" fxLayoutAlign="center center">
+        <mat-card-title class="title" fxLayoutAlign="center center">
+            <span class="second-span"></span>
+            Select your bike
+            <span class="second-span"></span>
+        </mat-card-title>
+    </div>
+
+    <!-- spinner -->
+    <app-progress-spinner class="spinner" fxLayoutAlign="center center" *ngIf="showSpinner"></app-progress-spinner>
+
+    <div fxLayoutAlign="center center">
+        <mat-card *ngIf="showSelectCar" class="select-car">
+
+            <!-- get fuel -->
+            <!-- <mat-form-field>
+                <mat-label class="labels">Select Fuel Type</mat-label>
+                <mat-select [(value)]="selectedFuel" (openedChange)="onSelectionChange($event)">
+                    <mat-option class="labels" *ngFor="let fuel of allFuels" value={{fuel}}>{{fuel}}</mat-option>
+                </mat-select>
+            </mat-form-field> -->
+
+            <!-- get brand -->
+            <mat-form-field appearance="fill">
+                <mat-label class="labels">Select Brand</mat-label>
+                <mat-select [(value)]="selectedBrand" (selectionChange)="getAllModelsByBrand($event.value)"
+                    (openedChange)="onSelectionChange($event)">
+                    <mat-option class="labels" *ngFor="let brand of allBrands" value="{{brand}}">{{brand}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <!-- get models -->
+            <mat-form-field appearance="fill">
+                <mat-label class="labels">Select Model</mat-label>
+                <!-- <mat-select [(value)]="selectedModel" (selectionChange)="getModelValue($event.value)"> -->
+                <mat-select [(value)]="selectedModel" (openedChange)="onSelectionChange($event)">
+                    <mat-option class="labels" *ngFor="let model of allModels" value={{model}}>{{model}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <!-- get option -->
+            <mat-form-field appearance="fill">
+                <mat-label class="labels">Select Engine Type</mat-label>
+                <mat-select [(value)]="selectedOption" (openedChange)="onSelectionChange($event)">
+                    <mat-option class="labels" *ngFor="let option of allOptions"
+                        value={{option}}>{{option}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+        </mat-card>
+    </div>
+
+    <!-- selected car -->
+    <div class="car-specs-div" fxLayoutAlign="center center">
+        <mat-card class="car-specs" *ngIf="showCarSpecs">
+            <mat-card-title fxLayoutAlign="center center" class="car-title">
+                {{selectedModel}}
+            </mat-card-title>
+
+            <div fxLayout="column" *ngFor="let item of displayedColumns">
+                <table class="styled-table" *ngIf="showCarSpecs">
+                    <tr class="table-tr" fxLayoutAlign="space-between center">
+                        <thead>
+                            <tr>
+                                <th>{{item}}</th>
+                            </tr>
+                        </thead>
+                        <span class="first-span"></span>
+                        <span class="second-span"></span>
+                        <span class="first-span"></span>
+                        <tbody>
+                            <div class="table-values" *ngFor="let i of selectedCar">
+                                <td>{{i[item]}}</td>
+                            </div>
+                        </tbody>
+                    </tr>
+                </table>
+            </div>
+            <table class="styled-table" *ngIf="showCarSpecs">
+                <mat-card-title fxLayoutAlign="center center" class="car-footer">
+                    <div *ngFor="let i of selectedCar">
+                        <td><a href="{{i.url}}" target="_blank">See full car specs</a></td>
+                    </div>
+                </mat-card-title>
+            </table>
+        </mat-card>
+    </div>
+
+    <div class="footer-btns" fxLayoutAlign="center center">
+        <app-button-icon-round [data]="changeRide" (click)="changeSelectedRide()"></app-button-icon-round>
+        Change Ride
+    </div>
+
+    <div *ngIf="showCarSpecs" class="footer-btns" fxLayoutAlign="space-around">
+        <div>
+            <app-button-icon-round [data]="changeCar" (click)="goBack()"></app-button-icon-round>
+            Change car
+        </div>
+        <div>
+            <app-button-icon-round [data]="iReport" (click)="redirectToiReport()"></app-button-icon-round>
+            iReport
+        </div>
+    </div>
+
+    <div *ngIf="showCarSpecs">
+        <hr class="divider">
+        <hr class="divider">
+    </div>
+</div>

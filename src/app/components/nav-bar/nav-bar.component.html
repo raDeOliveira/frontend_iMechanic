@@ -18,18 +18,18 @@
                         <app-button-icon-round [data]="loginBtn" (click)="redirectToLogin()">
                         </app-button-icon-round>
                         Login
-
-                        <!-- home button -->
-                        <app-button-icon-round [data]="backBtn" (click)="redirectToHome()">
-                        </app-button-icon-round>
-                        Home
                     </div>
 
                     <!-- check if user is authenticated -->
                     <div *ngIf="isUserAuthenticated()">
-                        {{isUserActive}}
                         <app-button-icon-round [data]="logoutBtn" (click)="logOut()">Logout
                         </app-button-icon-round>
+                        {{isUserActive}}
+
+                        <!-- home button -->
+                        <!-- <app-button-icon-round [data]="backBtn" (click)="redirectToHome()">
+                        </app-button-icon-round>
+                        Home -->
                     </div>
                 </mat-card-actions>
             </div>

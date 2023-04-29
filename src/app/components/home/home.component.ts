@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ButtonIconRound } from 'src/app/model/btn-icon-round.model';
 
 @Component({
   selector: 'app-home',
@@ -9,9 +8,25 @@ import { ButtonIconRound } from 'src/app/model/btn-icon-round.model';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  showSelectedRide: boolean = false;
+
+  constructor(private route: Router) { }
+
+  // check if user is authenticated
+  isUserAuthenticated(): boolean {
+    return localStorage.getItem('jwt') ? true : false;
+  };
+
+  // bike selected
+  bikeSelected() {
+    this.route.navigate(['/bike']);
+  };
+
+  // car selected
+  carSelected() {
+    this.route.navigate(['/car']);
+  };
 
   ngOnInit(): void {
-
   }
 }
