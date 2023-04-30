@@ -19,6 +19,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTableModule } from '@angular/material/table';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MtxTooltipModule } from '@ng-matero/extensions/tooltip';
 
 
 import { ButtonsComponent } from 'src/app/components/buttons/buttons.component';
@@ -63,6 +64,7 @@ import { BikeComponent } from 'src/app/components/bike/bike.component';
     MatTableModule,
     MatDividerModule,
     MatProgressSpinnerModule,
+    MtxTooltipModule
   ],
   exports: [
     HomeComponent,

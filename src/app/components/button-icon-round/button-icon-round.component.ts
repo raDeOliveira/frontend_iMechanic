@@ -28,7 +28,7 @@ export class ButtonIconRoundComponent implements OnInit {
     if (this.hover) {
       const styles = {
         'background-color': this.data.hover,
-        'color': '#ffffff',
+        'color': this.data.foregroundColor,
         'width': this.data.width,
         'height': this.data.height,
         'transform': this.data.transform,
@@ -38,7 +38,7 @@ export class ButtonIconRoundComponent implements OnInit {
     } else {
       const styles = {
         'background-color': this.data.backgroundColor,
-        'color': '#ffffff',
+        'color': this.data.foregroundColor,
         'width': this.data.width,
         'height': this.data.height,
         'font-size': this.data.size

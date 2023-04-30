@@ -25,7 +25,7 @@ export class QuestionsComponent implements OnInit {
   ngOnInit(): void {
     this.card.colName = this.apiService.questions[0].question_name;
     this.card.questions = this.apiService.questions[0].question_item;
-  };
+  }
 
 
 }

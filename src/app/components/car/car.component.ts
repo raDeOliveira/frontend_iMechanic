@@ -56,7 +56,7 @@ export class CarComponent implements OnInit {
   changeCar: ButtonIconRound = {
     nameIcon: 'restart_alt',
     backgroundColor: '#476452',
-    foregroundColor: '#000000',
+    foregroundColor: '#ffffff',
     hover: '#a8d175',
   };
 
@@ -64,7 +64,7 @@ export class CarComponent implements OnInit {
   iReport: ButtonIconRound = {
     nameIcon: 'quiz',
     backgroundColor: '#476452',
-    foregroundColor: '#000000',
+    foregroundColor: '#ffffff',
     hover: '#a8d175'
   };
 
@@ -72,7 +72,7 @@ export class CarComponent implements OnInit {
   changeRide: ButtonIconRound = {
     nameIcon: 'restart_alt',
     backgroundColor: '#476452',
-    foregroundColor: '#000000',
+    foregroundColor: '#ffffff',
     hover: '#a8d175'
   };
 

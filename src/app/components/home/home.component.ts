@@ -12,6 +12,12 @@ export class HomeComponent implements OnInit {
 
   constructor(private route: Router) { }
 
+  // NOTE!! add maintenance option to app
+  // NOTE!! add maintenance option to app
+
+  // NOTE!! option to push historic of all searched cars from user
+  // NOTE!! option to push historic of all searched cars from user
+
   // check if user is authenticated
   isUserAuthenticated(): boolean {
     return localStorage.getItem('jwt') ? true : false;
