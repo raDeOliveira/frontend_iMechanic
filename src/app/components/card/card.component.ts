@@ -1,25 +1,36 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { ButtonIconRound } from 'src/app/model/btn-icon-round.model';
 import { Card } from 'src/app/model/card';
 import { ApiService } from 'src/app/service/api.service';
+import { MdbModalService } from 'mdb-angular-ui-kit/modal';
+import { ModalData } from 'src/app/model/modal-data';
+import { ModalComponent } from '../modal/modal.component';
 
-export class ItemService {
-  items: any;
-}
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
-  styleUrls: ['./card.component.scss']
+  styleUrls: ['./card.component.scss'],
 })
 export class CardComponent implements OnInit {
 
-  constructor(private apiService: ApiService) { }
-
+  @ViewChild('modal') modal: TemplateRef<any> | any;
   @Input() card!: Card;
+
   questions = this.apiService.questions;
   questionNumber = 0;
   answersArray: Array<string> = [];
+
+  imgArr = [
+    'https://live.staticflickr.com/65535/52874929115_5cecca8cb1_z.jpg',
+    'https://live.staticflickr.com/65535/52906749786_4be1db8d0b_z.jpg',
+    'https://live.staticflickr.com/65535/52907131295_e52b189afc_z.jpg',
+    'https://live.staticflickr.com/65535/52907200528_59200b1dc8_z.jpg'
+  ]
+
+  constructor(private apiService: ApiService, private modalService: MdbModalService) { }
+
+
 
   // BUG fix array index outbound
   // next question
@@ -28,11 +39,14 @@ export class CardComponent implements OnInit {
       console.log('no more questions');
     }
     this.questionNumber++;
-    this.questions.forEach(element => {
+    this.questions.forEach(() => {
+      this.card.id = this.questions[this.questionNumber].id;
       this.card.colName = this.questions[this.questionNumber].question_name;
       this.card.questions = this.questions[this.questionNumber].question_item;
+      this.card.question_name = this.questions[this.questionNumber].question_name;
+      this.card.question_type_name = this.questions[this.questionNumber].question_type_name;
+      this.card.srcImg = this.imgArr[this.questionNumber];
     });
-    console.log(this.questionNumber);
   }
 
   // BUG fix array index outbound
@@ -42,15 +56,17 @@ export class CardComponent implements OnInit {
       console.log('no more questions');
     }
     this.questionNumber--;
-    this.questions.forEach(element => {
+    this.questions.forEach(() => {
+      this.card.id = this.questions[this.questionNumber].id;
       this.card.colName = this.questions[this.questionNumber].question_name;
       this.card.questions = this.questions[this.questionNumber].question_item;
+      this.card.question_name = this.questions[this.questionNumber].question_name;
+      this.card.question_type_name = this.questions[this.questionNumber].question_type_name;
     });
-    console.log(this.questionNumber);
   }
 
-  // NOTE create dict to store q.name, q.id and q.answer
-  // getAnswer(event: any, answerTitle: string, answer: string) {
+  // get answers from user
+  // NOTE store answers in array CARD
   getAnswer(event: any, answer: string) {
     if (event.checked) {
       if (!this.answersArray.includes(answer)) {
@@ -108,8 +124,23 @@ export class CardComponent implements OnInit {
     }
   ];
 
-  ngOnInit(): void {
+  modalData: ModalData | any;
 
+  // open modal
+  openModal(srcImg: string, description: string) {
+    this.modalService.open(this.modal, {
+      modalClass: 'modal-dialog-centered modal-lg',
+    });
+    this.modalData = {
+      title: this.card.question_name,
+      srcImg: srcImg,
+      description: description
+    }
   }
+
+
+  ngOnInit(): void {
+  }
+
 
 }

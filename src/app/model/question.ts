@@ -1,10 +1,7 @@
-// import { QuestionItem } from "./question.item";
-
 export interface Question {
-    id: number,
-    question_type_id: number,
-    question_type_name: string,
-    question_name: string,
-    // question_item: QuestionItem[]
-    question_item: []
+    id?: [] | any,
+    question_type_id?: [] | any,
+    question_type_name?: [] | any,
+    question_name?: [] | any,
+    question_item?: [] | any
 }

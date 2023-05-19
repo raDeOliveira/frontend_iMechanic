@@ -1,4 +1,8 @@
 export interface Card {
-    colName: string,
-    questions: Array<any>
+    id?: Array<any>
+    colName?: Array<any>
+    srcImg?: any
+    questions?: Array<any>
+    question_name?: Array<any>
+    question_type_name?: Array<any>
 }

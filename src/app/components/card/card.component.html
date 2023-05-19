@@ -2,6 +2,7 @@
 
 <div fxLayoutAlign="center center" class="div-title">
     <mat-card-title fxLayoutAlign="center center" class="car-title">
+        {{card.id + ' - '}}
         {{card.colName}}
     </mat-card-title>
 </div>
@@ -27,27 +28,18 @@
                         <span class="second-span"></span>
                         <span class="first-span"></span>
 
+                        <tbody>
+                            <app-button-icon-round [data]="tooltipBtn" (click)="openModal(imgArr[0], item.note)">
+                            </app-button-icon-round>
+                            <ng-template #modal>
+                                <app-modal [modalData]="modalData"></app-modal>
+
+                            </ng-template>
+                        </tbody>
+
                         <!-- checkbox -->
                         <mat-checkbox class="checkbox" [(ngModel)]="item.checked"
-                            (change)="getAnswer($event, (item.answer_id + item.name))"></mat-checkbox>
-
-                        <tbody>
-                            <div class="table-values">
-
-                                <!-- tooltip -->
-                                <div class="tooltip">
-                                    <app-button-icon-round [mtxTooltip]="tooltipImg" [mtxTooltipPosition]="'left'"
-                                        [data]="tooltipBtn"></app-button-icon-round>
-                                </div>
-                                <ng-template #tooltipImg>
-                                    <div style="background: gray">
-                                        <img src="https://icons-for-free.com/download-icon-angular-1321215611022593855_256.png"
-                                            alt="">
-                                        {{item.note}}
-                                    </div>
-                                </ng-template>
-                            </div>
-                        </tbody>
+                            (change)="getAnswer($event, (card.id + ' ' + card.question_name + ' ' + item.name))"></mat-checkbox>
                     </tr>
                 </table>
             </div>
@@ -56,4 +48,4 @@
     </mat-card>
 </div>
 
-<mat-checkbox checked="true" class="custom-frame">Data1</mat-checkbox>
+<!-- <mat-checkbox checked="true" class="custom-frame">Data1</mat-checkbox> -->

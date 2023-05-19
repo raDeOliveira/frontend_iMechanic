@@ -79,12 +79,12 @@ export class CarComponent implements OnInit {
   // get all brands
   getAllBrands() {
     this.apiService.getAllBrands().subscribe((brand) => (this.allBrands = brand));
-  };
+  }
 
   // get all models by brand
   getAllModelsByBrand(brand: string) {
     this.apiService.getAllModelsByBrand(brand).subscribe(model => this.allModels = model);
-  };
+  }
 
   // get all fuels
   getAllFuels() {
@@ -96,20 +96,20 @@ export class CarComponent implements OnInit {
     this.apiService.getOptionCar(brand, model, fuel).subscribe(
       optionCar => this.allOptions = optionCar
     );
-  };
+  }
 
   // get selected car
   getSelectedCar(brand: string, model: string, fuel: string, option: string) {
     this.apiService.getSelectedCar(brand, model, fuel, option).subscribe(
       selectedCar => this.selectedCar = selectedCar
     );
-  };
+  }
 
   // get values from dropdowns
   onSelectionChange(opened: boolean) {
     if (!opened && this.selectedFuel && this.selectedModel && this.selectedBrand) {
       this.getOptionCar(this.selectedBrand, this.selectedModel, this.selectedFuel);
-    };
+    }
 
     if (!opened && this.selectedFuel && this.selectedModel && this.selectedBrand && this.selectedOption) {
       this.getSelectedCar(this.selectedBrand, this.selectedModel, this.selectedFuel, this.selectedOption);
@@ -118,8 +118,8 @@ export class CarComponent implements OnInit {
       this.showCarSpecs = true;
       this.showSelectCar = false;
       this.showChangeSelectedRide = true;
-    };
-  };
+    }
+  }
 
   // back button
   goBack = () => {
@@ -132,7 +132,7 @@ export class CarComponent implements OnInit {
   ngOnInit(): void {
     this.getAllBrands();
     this.getAllFuels();
-  };
+  }
 
-};
+}
 

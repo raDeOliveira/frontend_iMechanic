@@ -16,11 +16,11 @@ export class ButtonIconRoundComponent implements OnInit {
 
   mouseIn() {
     this.hover = true;
-  };
+  }
 
   mouseOut() {
     this.hover = false;
-  };
+  }
 
   // set button styles
   setStyles(): any {
@@ -45,7 +45,7 @@ export class ButtonIconRoundComponent implements OnInit {
       };
       return styles;
     }
-  };
+  }
 
   // set mat-icon style
   setIconStyles(): any {
@@ -53,7 +53,7 @@ export class ButtonIconRoundComponent implements OnInit {
       'left': '5px'
     }
     return styles;
-  };
+  }
 
   ngOnInit(): void {
   }

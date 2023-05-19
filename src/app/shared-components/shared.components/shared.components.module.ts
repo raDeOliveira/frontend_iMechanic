@@ -19,8 +19,12 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTableModule } from '@angular/material/table';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MtxTooltipModule } from '@ng-matero/extensions/tooltip';
 
+// MDBBootstrap
+import { MdbCheckboxModule } from 'mdb-angular-ui-kit/checkbox';
+import { MdbTooltipModule } from 'mdb-angular-ui-kit/tooltip';
+import { MdbPopoverModule } from 'mdb-angular-ui-kit/popover';
+import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
 
 import { ButtonsComponent } from 'src/app/components/buttons/buttons.component';
 import { ButtonIconRoundComponent } from 'src/app/components/button-icon-round/button-icon-round.component';
@@ -31,9 +35,12 @@ import { QuestionsComponent } from 'src/app/components/questions/questions.compo
 import { CardComponent } from 'src/app/components/card/card.component';
 import { ProgressSpinnerComponent } from 'src/app/components/progress-spinner/progress-spinner.component';
 import { BikeComponent } from 'src/app/components/bike/bike.component';
+import { ModalComponent } from 'src/app/components/modal/modal.component';
 
 @NgModule({
-  providers: [ApiService],
+  providers: [
+    ApiService,
+  ],
   declarations: [
     HomeComponent,
     HeaderComponent,
@@ -47,6 +54,7 @@ import { BikeComponent } from 'src/app/components/bike/bike.component';
     CardComponent,
     ProgressSpinnerComponent,
     BikeComponent,
+    ModalComponent,
 
   ],
   imports: [
@@ -64,7 +72,12 @@ import { BikeComponent } from 'src/app/components/bike/bike.component';
     MatTableModule,
     MatDividerModule,
     MatProgressSpinnerModule,
-    MtxTooltipModule
+    MdbCheckboxModule,
+    MdbTooltipModule,
+    MdbPopoverModule,
+    MdbModalModule,
+
+
   ],
   exports: [
     HomeComponent,
@@ -79,6 +92,7 @@ import { BikeComponent } from 'src/app/components/bike/bike.component';
     CardComponent,
     ProgressSpinnerComponent,
     BikeComponent,
+    ModalComponent,
   ],
 })
 export class SharedComponentsModule { }
