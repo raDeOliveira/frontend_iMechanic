@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ModalData } from 'src/app/model/modal-data';
+import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
 
 @Component({
   selector: 'app-modal',
@@ -8,13 +8,10 @@ import { ModalData } from 'src/app/model/modal-data';
 })
 export class ModalComponent {
 
-  @Input() modalData: ModalData | any;
+  @Input() title!: string;
+  @Input() srcImg!: string;
+  @Input() notes!: string;
 
-  constructor() { }
-
-  close(): void {
-    // this.modalRef.close();
-  }
-
+  constructor(public modalRef: MdbModalRef<ModalComponent>) { }
 
 }

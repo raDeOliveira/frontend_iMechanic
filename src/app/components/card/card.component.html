@@ -31,10 +31,6 @@
                         <tbody>
                             <app-button-icon-round [data]="tooltipBtn" (click)="openModal(imgArr[0], item.note)">
                             </app-button-icon-round>
-                            <ng-template #modal>
-                                <app-modal [modalData]="modalData"></app-modal>
-
-                            </ng-template>
                         </tbody>
 
                         <!-- checkbox -->
@@ -48,4 +44,4 @@
     </mat-card>
 </div>
 
-<!-- <mat-checkbox checked="true" class="custom-frame">Data1</mat-checkbox> -->
+<mat-checkbox checked="true" class="custom-frame">Data1</mat-checkbox>

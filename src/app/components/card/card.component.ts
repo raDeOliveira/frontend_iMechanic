@@ -17,9 +17,10 @@ export class CardComponent implements OnInit {
   @ViewChild('modal') modal: TemplateRef<any> | any;
   @Input() card!: Card;
 
+  answersArray: Array<string> = [];
+  modalData!: ModalData;
   questions = this.apiService.questions;
   questionNumber = 0;
-  answersArray: Array<string> = [];
 
   imgArr = [
     'https://live.staticflickr.com/65535/52874929115_5cecca8cb1_z.jpg',
@@ -29,8 +30,6 @@ export class CardComponent implements OnInit {
   ]
 
   constructor(private apiService: ApiService, private modalService: MdbModalService) { }
-
-
 
   // BUG fix array index outbound
   // next question
@@ -124,18 +123,16 @@ export class CardComponent implements OnInit {
     }
   ];
 
-  modalData: ModalData | any;
-
   // open modal
-  openModal(srcImg: string, description: string) {
-    this.modalService.open(this.modal, {
-      modalClass: 'modal-dialog-centered modal-lg',
+  openModal(srcImg: string, notes: string) {
+    this.modalService.open(ModalComponent, {
+      modalClass: 'modal-dialog-centered',
+      data: {
+        title: this.card.question_name,
+        srcImg: srcImg,
+        notes: notes
+      }
     });
-    this.modalData = {
-      title: this.card.question_name,
-      srcImg: srcImg,
-      description: description
-    }
   }
 
 
