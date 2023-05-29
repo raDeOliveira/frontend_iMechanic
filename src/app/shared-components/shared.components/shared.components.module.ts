@@ -19,11 +19,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTableModule } from '@angular/material/table';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatRippleModule } from '@angular/material/core';
 
 // MDBBootstrap
-import { MdbCheckboxModule } from 'mdb-angular-ui-kit/checkbox';
-import { MdbTooltipModule } from 'mdb-angular-ui-kit/tooltip';
-import { MdbPopoverModule } from 'mdb-angular-ui-kit/popover';
 import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
 
 import { ButtonsComponent } from 'src/app/components/buttons/buttons.component';
@@ -72,11 +70,8 @@ import { ModalComponent } from 'src/app/components/modal/modal.component';
     MatTableModule,
     MatDividerModule,
     MatProgressSpinnerModule,
-    MdbCheckboxModule,
-    MdbTooltipModule,
-    MdbPopoverModule,
     MdbModalModule,
-
+    MatRippleModule,
 
   ],
   exports: [

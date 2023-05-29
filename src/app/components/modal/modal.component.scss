@@ -1,27 +1,24 @@
 .modal-header {
-  padding: 0.1rem;
-  border: 1px solid #000000;
+  padding: 0rem;
   background-color: #679479;
   color: white;
 }
 
-.img {
-  padding-bottom: 15px;
+#my-img {
+  border: 3px solid #000000;
 }
 
-.notes {
-  border: 1px solid #000000;
-  background-color: #679479;
-  color: white;
+.div-img {
+  padding-bottom: 5px;
 }
 
 .btn {
-  background-color: #5f5a5a;
+  background-color: #9b2020;
   color: white;
 }
 
 .btn:hover {
-  background-color: #9b2020;
+  background-color: #e85b5b;
   color: white;
 }
 

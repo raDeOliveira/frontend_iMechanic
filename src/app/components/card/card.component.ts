@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ButtonIconRound } from 'src/app/model/btn-icon-round.model';
 import { Card } from 'src/app/model/card';
 import { ApiService } from 'src/app/service/api.service';
@@ -6,28 +6,19 @@ import { MdbModalService } from 'mdb-angular-ui-kit/modal';
 import { ModalData } from 'src/app/model/modal-data';
 import { ModalComponent } from '../modal/modal.component';
 
-
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss'],
 })
-export class CardComponent implements OnInit {
+export class CardComponent {
 
-  @ViewChild('modal') modal: TemplateRef<any> | any;
   @Input() card!: Card;
-
   answersArray: Array<string> = [];
   modalData!: ModalData;
   questions = this.apiService.questions;
   questionNumber = 0;
-
-  imgArr = [
-    'https://live.staticflickr.com/65535/52874929115_5cecca8cb1_z.jpg',
-    'https://live.staticflickr.com/65535/52906749786_4be1db8d0b_z.jpg',
-    'https://live.staticflickr.com/65535/52907131295_e52b189afc_z.jpg',
-    'https://live.staticflickr.com/65535/52907200528_59200b1dc8_z.jpg'
-  ]
+  isRippleDisabled: true | undefined;
 
   constructor(private apiService: ApiService, private modalService: MdbModalService) { }
 
@@ -44,7 +35,6 @@ export class CardComponent implements OnInit {
       this.card.questions = this.questions[this.questionNumber].question_item;
       this.card.question_name = this.questions[this.questionNumber].question_name;
       this.card.question_type_name = this.questions[this.questionNumber].question_type_name;
-      this.card.srcImg = this.imgArr[this.questionNumber];
     });
   }
 
@@ -95,11 +85,11 @@ export class CardComponent implements OnInit {
   };
 
   // tooltip button
-  tooltipBtn: ButtonIconRound = {
+  modalBtn: ButtonIconRound = {
     nameIcon: 'warning',
     backgroundColor: '#F0ED1F',
     foregroundColor: '#000000',
-    hover: '#F0ED1F',
+    hover: '#abaa2b',
     width: '50px',
     height: '30px'
   };
@@ -133,10 +123,6 @@ export class CardComponent implements OnInit {
         notes: notes
       }
     });
-  }
-
-
-  ngOnInit(): void {
   }
 
 

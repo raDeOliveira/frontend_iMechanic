@@ -16,11 +16,21 @@
     <mat-card class="card-ireport">
         <mat-card-content>
 
+            <div class="div-tip-note" fxLayoutAlign="end center">
+                <div class="tip">
+                    TIP
+                </div>
+                <span> ...... </span>
+                <div class="check">
+                    CHECK
+                </div>
+            </div>
             <div fxLayout="column" *ngFor="let item of card.questions">
                 <table class="styled-table">
                     <tr class="table-tr" fxLayoutAlign="space-between center">
                         <thead>
                             <tr>
+
                                 <th>{{item.name}}</th>
                             </tr>
                         </thead>
@@ -29,8 +39,9 @@
                         <span class="first-span"></span>
 
                         <tbody>
-                            <app-button-icon-round [data]="tooltipBtn" (click)="openModal(imgArr[0], item.note)">
+                            <app-button-icon-round [data]="modalBtn" (click)="openModal(item.img, item.note)">
                             </app-button-icon-round>
+                            <span> - </span>
                         </tbody>
 
                         <!-- checkbox -->
@@ -44,4 +55,4 @@
     </mat-card>
 </div>
 
-<mat-checkbox checked="true" class="custom-frame">Data1</mat-checkbox>
+<mat-checkbox disableRipple="true" matRipple>Some checkbox</mat-checkbox>
