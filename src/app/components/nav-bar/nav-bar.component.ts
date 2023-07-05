@@ -14,7 +14,7 @@ export class NavBarComponent implements OnInit {
   isUserActive: any
   token: any | string;
 
-  constructor(private route: Router, private apiService: ApiService, private jwtHelper: JwtHelperService) { }
+  constructor(private router: Router, private apiService: ApiService, private jwtHelper: JwtHelperService) { }
 
   // check if user is authenticated
   isUserAuthenticated = (): boolean => {
@@ -32,7 +32,7 @@ export class NavBarComponent implements OnInit {
   // logout
   logOut = () => {
     localStorage.removeItem('jwt');
-    this.route.navigate(['/']);
+    this.router.navigate(['/']);
   };
 
   // login button
@@ -62,12 +62,12 @@ export class NavBarComponent implements OnInit {
 
   // redirect to login page
   redirectToLogin(): any {
-    this.route.navigate(['/login']);
+    this.router.navigate(['/login']);
   }
 
   // redirect to home page
   redirectToHome(): any {
-    this.route.navigate(['/home']);
+    this.router.navigate(['/home']);
   };
 
   ngOnInit(): void {

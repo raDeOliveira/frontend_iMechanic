@@ -22,39 +22,40 @@ export class CardComponent {
 
   constructor(private apiService: ApiService, private modalService: MdbModalService) { }
 
-  // BUG fix array index outbound
   // next question
   nextQuestion() {
-    if (this.questionNumber <= 0) {
-      console.log('no more questions');
-    }
-    this.questionNumber++;
-    this.questions.forEach(() => {
-      this.card.id = this.questions[this.questionNumber].id;
-      this.card.colName = this.questions[this.questionNumber].question_name;
-      this.card.questions = this.questions[this.questionNumber].question_item;
-      this.card.question_name = this.questions[this.questionNumber].question_name;
-      this.card.question_type_name = this.questions[this.questionNumber].question_type_name;
-    });
-  }
-
-  // BUG fix array index outbound
-  // previous question
-  previousQuestion() {
     if (this.questionNumber >= 7) {
       console.log('no more questions');
+    } else {
+      this.questionNumber++;
+      this.questions.forEach(() => {
+        this.card.id = this.questions[this.questionNumber].id;
+        this.card.colName = this.questions[this.questionNumber].question_name;
+        this.card.questions = this.questions[this.questionNumber].question_item;
+        this.card.question_name = this.questions[this.questionNumber].question_name;
+        this.card.question_type_name = this.questions[this.questionNumber].question_type_name;
+      });
     }
-    this.questionNumber--;
-    this.questions.forEach(() => {
-      this.card.id = this.questions[this.questionNumber].id;
-      this.card.colName = this.questions[this.questionNumber].question_name;
-      this.card.questions = this.questions[this.questionNumber].question_item;
-      this.card.question_name = this.questions[this.questionNumber].question_name;
-      this.card.question_type_name = this.questions[this.questionNumber].question_type_name;
-    });
+  }
+
+  // previous question
+  previousQuestion() {
+    if (this.questionNumber <= 0) {
+      console.log('no more questions');
+    } else {
+      this.questionNumber--;
+      this.questions.forEach(() => {
+        this.card.id = this.questions[this.questionNumber].id;
+        this.card.colName = this.questions[this.questionNumber].question_name;
+        this.card.questions = this.questions[this.questionNumber].question_item;
+        this.card.question_name = this.questions[this.questionNumber].question_name;
+        this.card.question_type_name = this.questions[this.questionNumber].question_type_name;
+      });
+    }
   }
 
   // get answers from user
+  // NOTE store answers in array CARD
   // NOTE store answers in array CARD
   getAnswer(event: any, answer: string) {
     if (event.checked) {

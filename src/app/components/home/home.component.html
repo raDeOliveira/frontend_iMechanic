@@ -14,7 +14,17 @@
                 maintenance. You can use this app to
                 add your car.
             </p>
+
+            <p>
+                <a id="mech-info" href="https://www.newkidscar.com/" target="_blank">More mechanical information</a>
+            </p>
+
+            <div fxLayoutAlign="center center">
+                <img src="https://live.staticflickr.com/65535/53024797266_4d67811ef7_o.png" width="896" height="499"
+                    alt="home_pic" />
+            </div>
         </div>
+
 
         <div *ngIf="isUserAuthenticated()" class="select-ride-btns" fxLayout="row" fxLayoutAlign="space-evenly">
             <button class="bike-btn" type="button" mat-stroked-button (click)="bikeSelected()">
