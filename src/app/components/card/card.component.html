@@ -31,7 +31,7 @@
                         <thead>
                             <tr>
 
-                                <th>{{item.name}}</th>
+                                <!-- <th>{{item.name}}</th> -->
                             </tr>
                         </thead>
                         <span class="first-span"></span>
@@ -45,8 +45,9 @@
                         </tbody>
 
                         <!-- checkbox -->
+                        <!-- <mat-checkbox class="checkbox" [(ngModel)]="item.checked" (change)="getAnswer($event, (card.id + ' ' + card.question_name + ' ' + item.name))"></mat-checkbox> -->
                         <mat-checkbox class="checkbox" [(ngModel)]="item.checked"
-                            (change)="getAnswer($event, (card.id + ' ' + card.question_name + ' ' + item.name))"></mat-checkbox>
+                            (change)="getAnswer($event, card.id, card.question_name, item.name)"></mat-checkbox>
                     </tr>
                 </table>
             </div>

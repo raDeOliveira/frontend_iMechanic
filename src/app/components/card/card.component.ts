@@ -3,8 +3,9 @@ import { ButtonIconRound } from 'src/app/model/btn-icon-round.model';
 import { Card } from 'src/app/model/card';
 import { ApiService } from 'src/app/service/api.service';
 import { MdbModalService } from 'mdb-angular-ui-kit/modal';
-import { ModalData } from 'src/app/model/modal-data';
 import { ModalComponent } from '../modal/modal.component';
+import { Question, Question_2 } from 'src/app/model/question';
+
 
 @Component({
   selector: 'app-card',
@@ -14,8 +15,8 @@ import { ModalComponent } from '../modal/modal.component';
 export class CardComponent {
 
   @Input() card!: Card;
-  answersArray: Array<string> = [];
-  modalData!: ModalData;
+  answersArray: Array<any> = [];
+
   questions = this.apiService.questions;
   questionNumber = 0;
   isRippleDisabled: true | undefined;
@@ -57,14 +58,45 @@ export class CardComponent {
   // get answers from user
   // NOTE store answers in array CARD
   // NOTE store answers in array CARD
-  getAnswer(event: any, answer: string) {
+  // getAnswer(event: any, answer: string) {
+  //   if (event.checked) {
+  //     if (!this.answersArray.includes(answer)) {
+  //       this.answersArray.push(answer);
+  //       // console.log(this.answersArray);
+  //     }
+
+  //     // this.answersArray.forEach(element => {
+  //     //   console.log(element);
+  //     // });
+  //   } else {
+  //     this.answersArray.splice(this.answersArray.indexOf(answer), 1);
+  //     // console.log(this.answersArray);
+  //   }
+  // }
+
+
+  getAnswer(event: any, id: any, question_name: any, question_item_name: any) {
+
     if (event.checked) {
-      if (!this.answersArray.includes(answer)) {
-        this.answersArray.push(answer);
-        console.log(this.answersArray);
+      var question = {
+        id: id,
+        // question: [
+        //   {
+        question_name: question_name,
+        question_item_name: question_item_name
+        //   }
+        // ]
       }
+      this.answersArray.push(question);
+
+      console.log(this.answersArray);
+
     } else {
-      this.answersArray.splice(this.answersArray.indexOf(answer), 1);
+      for (let j in this.answersArray) {
+        if (this.answersArray[j].id == id && this.answersArray[j].question_name == question_name && this.answersArray[j].question_item_name == question_item_name) {
+          this.answersArray.splice(this.answersArray.indexOf(id, question_item_name), 1);
+        }
+      }
       console.log(this.answersArray);
     }
   }
